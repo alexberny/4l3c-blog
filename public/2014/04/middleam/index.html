@@ -1,147 +1,21 @@
-<!DOCTYPE html>
-<html lang="it"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="https://www.4l3c.org/">
-    <title>Middleam | 4l3c</title>
-   
-    
-    
-      <link href="/dist/css/main.b3d61d18c1a7ac86cb25.css" rel="stylesheet">
-    
-
-    
-    <script src="https://kit.fontawesome.com/fde4160ead.js" crossorigin="anonymous"></script>
-
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    
-    
-    <script type="text/javascript">
-    var _iub = _iub || [];
-    _iub.csConfiguration = {"ccpaAcknowledgeOnDisplay":true,"whitelabel":false,"lang":"it","siteId":2107002,"enableCcpa":true,"countryDetection":true,"perPurposeConsent":true,"cookiePolicyId":13294331, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-top-center","rejectButtonDisplay":true }};
-</script>
-<script type="text/javascript" src="//cdn.iubenda.com/cs/ccpa/stub.js"></script>
-<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
-    <meta property="og:title" content="Middleam" />
-<meta property="og:description" content="Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
-Cos&rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.4l3c.org/2014/04/middleam/" />
-<meta property="article:published_time" content="2014-04-21T15:31:02+00:00" />
-<meta property="article:modified_time" content="2014-04-21T15:31:02+00:00" />
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Middleam"/>
-<meta name="twitter:description" content="Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
-Cos&rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno."/>
-
-    <script type="application/ld+json">
-    
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Middleam",
-      "image": "https://www.4l3c.org/",
-      "datePublished": "2014-04-21T15:31:02Z",
-      "dateModified": "2014-04-21T15:31:02Z",
-      "author": {
-        "@type": "Person",
-        "name": "Alessandro Bernardi"
-      },
-      "mainEntityOfPage": { "@type": "WebPage" },
-       "publisher": {
-        "@type": "Organization",
-        "name":  null ,
-        "logo": {
-          "@type": "ImageObject",
-          "url":  null 
-        }
-      },
-      "description": "Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L\u0026rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.\nCos\u0026rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.",
-      "keywords": ["middleman"]
-    }
-    
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "4l3c",
-      "url": "https://www.4l3c.org/",
-      "sameAs": [
-        "https://www.facebook.com/https:\/\/www.facebook.com\/alessandro.bernardi",
-        "https://www.instagram.com/",
-        "https://twitter.com/https:\/\/twitter.com\/alexberny",
-        "https://github.com/"
-      ]
-    }
-    </script>
-</head><body class="w-100 debug-grid">
-        <header class="w-100 w-50-ns tc pv3 center">
-    <h1 class="dib site-name pa2">
-        4l3c
-    </h1>
-    <span>a.k.a. Alessandro Bernardi</span>
-</header><nav id="mainMenu" class="w-100 w-50-l center dt pv4 pv3-l ph3 ph0-l db bb border-box" role="navigation">
-    <div class="w-100 w-70-l db dtc-l">
-        
-        
-        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/" title="">Home</a>
-        
-        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/chi_sono/" title="Chi sono">Chi sono</a>
-        
-        <a class="sidebar-nav-item  active ph2 link dark-gray hover-blue" href="/posts/" title="Articoli">Articoli</a>
-        
-        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/tutorial/" title="Tutorial">Tutorial</a>
-        
-    </div>
-    <div class="w-100 w-30-l db dtc-l tr-l mt3 mv0-l">
-        <a class="link ph2 dark-gray hover-blue" href="https://www.facebook.com/alessandro.bernardi" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a class="link ph2 dark-gray hover-blue" href="https://twitter.com/alexberny" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a class="link ph2 dark-gray hover-blue" href="https://www.linkedin.com/in/alessandro-bernardi-17021979" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a class="link ph2 dark-gray hover-blue" href="https://www.youtube.com/c/AlessandroBernardi-4l3c" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-</nav><main class="w-100 w-50-l center ph3 ph0-l">
-                
-  <article>
-    <header>
-      <h1>Middleam</h1>
-      <span class="db dib-l mt2 w-50-l">                        
-        <i class="far fa-calendar-alt"></i> <time datetime="2014-04-21T15:31:02-08:00">21 April 2014</time>
-      </span>
-      <span class="db dib-l mt2 tr-l">
-          <i class="fas fa-tags"></i> 
-          
-              <a href="tags/middleman" class="link dim blue">middleman</a>
-          
-      </span>
-    </header> 
-    <div class="mv5 lh-copy post-content">
-      <p>Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato.
-Si tratta di <a href="http://middlemanapp.com/">Middleman</a>, un generatore di siti statici, basato su Ruby e Sinitra.
-L&rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.</p>
-<h3 id="cosè-un-generatore-di-siti-statici">Cos&rsquo;è un generatore di siti statici</h3>
-<p>Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.
+<!doctype html><html lang=it><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><base href=https://www.4l3c.org/><meta name=Description content="Blog personale di 4l3c a.k.a. Alessandro Bernardi"><title>Middleam | 4l3c</title><link rel=dns-prefetch href=https://kit.fontawesome.com><link rel=dns-prefetch href=https://fonts.googleapis.com><link rel=dns-prefetch href=https://cdn.iubenda.com><link rel=dns-prefetch href=https://ka-f.fontawesome.com><link rel=dns-prefetch href=https://www.google-analytics.com><link rel=dns-prefetch href=https://www.iubenda.com><link rel=dns-prefetch href=https://licensebuttons.net><link rel=dns-prefetch href=https://cdn.iubenda.com><link rel=dns-prefetch href=https://hits-i.iubenda.com/><link href=/dist/css/main.b3d61d18c1a7ac86cb25.css rel=stylesheet media=screen><script src=https://kit.fontawesome.com/fde4160ead.js crossorigin=anonymous></script><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel=stylesheet><script type=text/javascript>var _iub=_iub||[];_iub.csConfiguration={"ccpaAcknowledgeOnDisplay":true,"whitelabel":false,"lang":"it","siteId":2107002,"enableCcpa":true,"countryDetection":true,"perPurposeConsent":true,"cookiePolicyId":13294331,"banner":{"acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-top-center","rejectButtonDisplay":true}};</script><script type=text/javascript src=//cdn.iubenda.com/cs/ccpa/stub.js></script><script type=text/javascript src=//cdn.iubenda.com/cs/iubenda_cs.js async></script><meta property="og:title" content="Middleam"><meta property="og:description" content="Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
+Cos&rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno."><meta property="og:type" content="article"><meta property="og:url" content="https://www.4l3c.org/2014/04/middleam/"><meta property="article:published_time" content="2014-04-21T15:31:02+00:00"><meta property="article:modified_time" content="2014-04-21T15:31:02+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Middleam"><meta name=twitter:description content="Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
+Cos&rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Middleam","image":"https://www.4l3c.org/","datePublished":"2014-04-21T15:31:02Z","dateModified":"2014-04-21T15:31:02Z","author":{"@type":"Person","name":"Alessandro Bernardi"},"mainEntityOfPage":{"@type":"WebPage"},"publisher":{"@type":"Organization","name":null,"logo":{"@type":"ImageObject","url":null}},"description":"Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L\u0026rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.\nCos\u0026rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.","keywords":["middleman"]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Blog","name":"4l3c","url":"https://www.4l3c.org/","sameAs":["https://www.facebook.com/https:\/\/www.facebook.com\/alessandro.bernardi","https://www.instagram.com/","https://twitter.com/https:\/\/twitter.com\/alexberny","https://github.com/https:\/\/github.com\/alexberny"]}</script></head><body class="w-100 debug-grid"><header class="w-100 w-50-ns tc pv3 center"><h1 class="dib site-name pa2">4l3c</h1><span>a.k.a. Alessandro Bernardi</span></header><nav id=mainMenu class="w-100 w-50-l center dt pv4 pv3-l ph3 ph0-l db bb border-box" role=navigation><div class="w-100 w-70-l db dtc-l"><a class="sidebar-nav-item ph2 link dark-gray hover-blue" href=/>Home</a>
+<a class="sidebar-nav-item ph2 link dark-gray hover-blue" href=/chi_sono/ title="Chi sono">Chi sono</a>
+<a class="sidebar-nav-item active ph2 link dark-gray hover-blue" href=/posts/ title=Articoli>Articoli</a>
+<a class="sidebar-nav-item ph2 link dark-gray hover-blue" href=/tutorial/ title=Tutorial>Tutorial</a></div><div class="w-100 w-30-l db dtc-l tr-l mt3 mv0-l"><a class="link ph2 dark-gray hover-blue" href=https://www.facebook.com/alessandro.bernardi target=_blank rel="nofollow, noreferrer"><i class="fab fa-facebook-f"></i></a><a class="link ph2 dark-gray hover-blue" href=https://twitter.com/alexberny target=_blank rel="nofollow, noreferrer"><i class="fab fa-twitter"></i></a><a class="link ph2 dark-gray hover-blue" href=https://www.linkedin.com/in/alessandro-bernardi-17021979 target=_blank rel="nofollow, noreferrer"><i class="fab fa-linkedin-in"></i></a><a class="link ph2 dark-gray hover-blue" href=https://www.youtube.com/c/AlessandroBernardi-4l3c target=_blank rel="nofollow, noreferrer"><i class="fab fa-youtube"></i></a></div></nav><main class="w-100 w-50-l center ph3 ph0-l"><article><header><h1>Middleam</h1><span class="db dib-l mt2 w-50-l"><i class="far fa-calendar-alt"></i><time datetime=2014-04-21T15:31:02-08:00>21 April 2014</time></span>
+<span class="db dib-l mt2 tr-l"><i class="fas fa-tags"></i><a href=tags/middleman class="link dim blue">middleman</a></span></header><div class="mv5 lh-copy post-content"><p>Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato.
+Si tratta di <a href=http://middlemanapp.com/>Middleman</a>, un generatore di siti statici, basato su Ruby e Sinitra.
+L&rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.</p><h3 id=cosè-un-generatore-di-siti-statici>Cos&rsquo;è un generatore di siti statici</h3><p>Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.
 Il tutto senza scrivere centinaia di volte le stesse linee di codice ma partendo da risorse pre-compilate, o pre-processate, in linguaggi come Haml, Markdown, Sass, Less, Coffescreept.
-Una volta compilato il tutto si otterranno le pagine html, i file css e javascript.</p>
-<h3 id="passo-1-linstallazione">Passo 1: l&rsquo;installazione</h3>
-<p>Per installare Middleman basta digitare</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gem install middleman
-</code></pre></div><p>da linea di comando.</p>
-<p>Middleman mette a disposizione tre comandi:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">middleman init
+Una volta compilato il tutto si otterranno le pagine html, i file css e javascript.</p><h3 id=passo-1-linstallazione>Passo 1: l&rsquo;installazione</h3><p>Per installare Middleman basta digitare</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ gem install middleman
+</code></pre></div><p>da linea di comando.</p><p>Middleman mette a disposizione tre comandi:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>middleman init
 middleman server
 middleman build
-</code></pre></div><p>Il primo inizializza un nuovo progetto, il secondo lancia il server locale per lo sviluppo del sito, il terzo genera le pagine che poi saranno caricate on-line.</p>
-<h3 id="passo-2-creazione-di-un-progetto">Passo 2: Creazione di un progetto</h3>
-<p>Creaiamo un nuovo progetto con il comando</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ middleman init my_proj_name
+</code></pre></div><p>Il primo inizializza un nuovo progetto, il secondo lancia il server locale per lo sviluppo del sito, il terzo genera le pagine che poi saranno caricate on-line.</p><h3 id=passo-2-creazione-di-un-progetto>Passo 2: Creazione di un progetto</h3><p>Creaiamo un nuovo progetto con il comando</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ middleman init my_proj_name
 </code></pre></div><p>Di default, Middleman mette a disposizione diversi template mentre altri sono liberamente scaricabili dal sito.
-Per creare un pregetto utilizzando un template alternativo digitare il comando</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ middleman init my_project --tempate<span style="color:#f92672">=</span>your_template
-</code></pre></div><h3 id="passo-3-la-struttura-del-progetto">Passo 3: La struttura del progetto</h3>
-<p>All&rsquo;interno del progetto troverete una struttura simile a questa:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">proj
+Per creare un pregetto utilizzando un template alternativo digitare il comando</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ middleman init my_project --tempate<span style=color:#f92672>=</span>your_template
+</code></pre></div><h3 id=passo-3-la-struttura-del-progetto>Passo 3: La struttura del progetto</h3><p>All&rsquo;interno del progetto troverete una struttura simile a questa:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>proj
 |- config.rb
 |- Gemfile
 |- source
@@ -155,199 +29,127 @@ Per creare un pregetto utilizzando un template alternativo digitare il comando</
    |- index.html.erb
 </code></pre></div><p>Il file <code>config.rb</code> contiene i parametri di configurazione per lo sviluppo, il building e il deploy del progetto.
 Il file <code>Gemfile</code> contiene le &lsquo;gemme&rsquo; di Ruby necessarie al progetto.
-Inutile dire che questi due file vanno modificati a secondo delle necessità.</p>
-<p>Il resto sono i file javascript, css, il layout e un file index per l&rsquo;inizio dello sviluppo del sito.</p>
-<h3 id="passo-4-sviluppo-del-progetto">Passo 4: Sviluppo del progetto</h3>
-<p>Scegliete il vostro editor preferito per lo sviluppo delle varie parti del progetto.
-Lanciate il comando</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ bundle exec middleman
-</code></pre></div><p>per avviare Middleman e seguire la compilazione real-time del progetto all&rsquo;url <a href="http://localhost:4567">http://localhost:4567</a> troverete il vostro progetto.
-Volendo si può abilitare l&rsquo;estensione <code>Livereload</code> in <code>config.rb</code> durante lo sviluppo in modo tale da ricaricare in automatico le pagine ad ogni modifica, liberandovi di questo &lsquo;ingrato&rsquo; compito.</p>
-<p>Vediamo in dettaglio alcuni aspetti dello sviluppo.</p>
-<h4 id="scaricare-i-gem-file-necessari">Scaricare i gem file necessari</h4>
-<p>Lanciare il comando</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ bundle install
-</code></pre></div><p>che provvederà ad installare le gemme necessarie al vostro progetto.</p>
-<p>Ogni tanto è bene lanciare anche</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ bundle update
-</code></pre></div><p>per chiedere un aggiornamento di quelle già installate.</p>
-<h4 id="aggiungere-pagine-al-sito">Aggiungere pagine al sito</h4>
-<p>Niente di più semplice: basta creare i file all&rsquo;interno della directory <code>source</code> ed assegnargli un&rsquo;estensione <code>.html.erb</code>.
+Inutile dire che questi due file vanno modificati a secondo delle necessità.</p><p>Il resto sono i file javascript, css, il layout e un file index per l&rsquo;inizio dello sviluppo del sito.</p><h3 id=passo-4-sviluppo-del-progetto>Passo 4: Sviluppo del progetto</h3><p>Scegliete il vostro editor preferito per lo sviluppo delle varie parti del progetto.
+Lanciate il comando</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ bundle exec middleman
+</code></pre></div><p>per avviare Middleman e seguire la compilazione real-time del progetto all&rsquo;url <a href=http://localhost:4567>http://localhost:4567</a> troverete il vostro progetto.
+Volendo si può abilitare l&rsquo;estensione <code>Livereload</code> in <code>config.rb</code> durante lo sviluppo in modo tale da ricaricare in automatico le pagine ad ogni modifica, liberandovi di questo &lsquo;ingrato&rsquo; compito.</p><p>Vediamo in dettaglio alcuni aspetti dello sviluppo.</p><h4 id=scaricare-i-gem-file-necessari>Scaricare i gem file necessari</h4><p>Lanciare il comando</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ bundle install
+</code></pre></div><p>che provvederà ad installare le gemme necessarie al vostro progetto.</p><p>Ogni tanto è bene lanciare anche</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ bundle update
+</code></pre></div><p>per chiedere un aggiornamento di quelle già installate.</p><h4 id=aggiungere-pagine-al-sito>Aggiungere pagine al sito</h4><p>Niente di più semplice: basta creare i file all&rsquo;interno della directory <code>source</code> ed assegnargli un&rsquo;estensione <code>.html.erb</code>.
 Potete iniziare copiando il contenuto della pagina <code>index.html.erb</code> di esempio.
 Aprendo questa pagina si nota che essa non è una normale pagina html.
-Mancano infatti tutti i tag <code>html</code>, <code>head</code>, <code>body</code>, &hellip; ma sono presenti una sezione racchiusa tra due linee di 3 trattini (- - -) e una parte di codice html.
-Niente paura: i tag mancanti sono presenti all&rsquo;interno del file di layout e Middleman si preoccuperà di integrarli all&rsquo;interno della pagina al posto vostro.</p>
-<p>Vediamo un attimo in dettaglio la pagina. La parte in alto, racchiusa tra i trattini, è formattata in stile <em>frontmatter</em> e contiene alcuni informazioni riguardo la pagina: il titolo, eventuali tag, data di creazione, autore, informazioni aggiuntive.
-Queste informazioni sono accessibili a Middleman tramite il codice <code>current_page.data.dato</code>. Ogni volta che lo inserirete all&rsquo;interno del layout sarà premura di Middleman sostituirlo con il contenuto del rispettivo <code>dato</code> del frontmatter nella pagina attuale.</p>
-<p>La restante parte, invece, racchiude il codice html che compone la pagina in questione. Esso è associato al codice <code>yield</code> all&rsquo;interno del layout.</p>
-<p>In questo modo non dovrete ricordarvi di scrivere e riscrivere decine di tag, aprirli, chiuderli, indentarli, ecc in ogni pagina: lo fate una volta all&rsquo;interno del layout e poi lasciate il lavoro sporco a Middleman.</p>
-<p>Eccovi un esempio di pagina in <em>.erb</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+Mancano infatti tutti i tag <code>html</code>, <code>head</code>, <code>body</code>, &mldr; ma sono presenti una sezione racchiusa tra due linee di 3 trattini (- - -) e una parte di codice html.
+Niente paura: i tag mancanti sono presenti all&rsquo;interno del file di layout e Middleman si preoccuperà di integrarli all&rsquo;interno della pagina al posto vostro.</p><p>Vediamo un attimo in dettaglio la pagina. La parte in alto, racchiusa tra i trattini, è formattata in stile <em>frontmatter</em> e contiene alcuni informazioni riguardo la pagina: il titolo, eventuali tag, data di creazione, autore, informazioni aggiuntive.
+Queste informazioni sono accessibili a Middleman tramite il codice <code>current_page.data.dato</code>. Ogni volta che lo inserirete all&rsquo;interno del layout sarà premura di Middleman sostituirlo con il contenuto del rispettivo <code>dato</code> del frontmatter nella pagina attuale.</p><p>La restante parte, invece, racchiude il codice html che compone la pagina in questione. Esso è associato al codice <code>yield</code> all&rsquo;interno del layout.</p><p>In questo modo non dovrete ricordarvi di scrivere e riscrivere decine di tag, aprirli, chiuderli, indentarli, ecc in ogni pagina: lo fate una volta all&rsquo;interno del layout e poi lasciate il lavoro sporco a Middleman.</p><p>Eccovi un esempio di pagina in <em>.erb</em></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>
 ---
 title: Welcome to Middleman
 ---
 
-&lt;div class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welcome&#34;</span>&gt;
+&lt;div class<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;welcome&#34;</span>&gt;
   &lt;h1&gt;Middleman is Watching&lt;/h1&gt;
-  &lt;p class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doc&#34;</span>&gt;
-    &lt;%<span style="color:#f92672">=</span> link_to <span style="color:#e6db74">&#34;Read Online Documentation&#34;</span>, <span style="color:#e6db74">&#34;http://middlemanapp.com/&#34;</span> %&gt;
+  &lt;p class<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;doc&#34;</span>&gt;
+    &lt;%<span style=color:#f92672>=</span> link_to <span style=color:#e6db74>&#34;Read Online Documentation&#34;</span>, <span style=color:#e6db74>&#34;http://middlemanapp.com/&#34;</span> %&gt;
   &lt;/p&gt;&lt;!-- .doc --&gt;
 &lt;/div&gt;&lt;!-- .welcome --&gt;
-</code></pre></div><h4 id="layout">Layout</h4>
-<p>Il file <code>layouts/layout.erb</code> contiene il layout di base per tutte le pagine html che andrete a creare all&rsquo;interno della directory <code>source</code>.
+</code></pre></div><h4 id=layout>Layout</h4><p>Il file <code>layouts/layout.erb</code> contiene il layout di base per tutte le pagine html che andrete a creare all&rsquo;interno della directory <code>source</code>.
 Potete decidere di creare altri layout da applicare a sezioni\pagine del sito semplicemente creando altri file all&rsquo;interno di questa directory e applicandoli poi alle singole pagine.
-La potenza di Middleman permette anche di applicare ai layout il concetto di &lsquo;eredità&rsquo; proprio dei linguaggi di programmazione: un layout di base che viene ereditato e migliorato da altri layout per le varie sezioni del sito.</p>
-<p>Ecco un esempio di layout.erb</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;!doctype html&gt;
+La potenza di Middleman permette anche di applicare ai layout il concetto di &lsquo;eredità&rsquo; proprio dei linguaggi di programmazione: un layout di base che viene ereditato e migliorato da altri layout per le varie sezioni del sito.</p><p>Ecco un esempio di layout.erb</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;!doctype html&gt;
 &lt;html&gt;
   &lt;head&gt;
-    &lt;meta charset<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+    &lt;meta charset<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span>&gt;
 
     &lt;!-- Always force latest IE rendering engine or request Chrome Frame --&gt;
-    &lt;meta content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge,chrome=1&#34;</span> http-equiv<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span>&gt;
+    &lt;meta content<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;IE=edge,chrome=1&#34;</span> http-equiv<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;X-UA-Compatible&#34;</span>&gt;
 
-    &lt;!-- Use title <span style="color:#66d9ef">if</span> it<span style="color:#960050;background-color:#1e0010">&#39;</span>s in the page YAML frontmatter --&gt;
-    &lt;title&gt;&lt;%<span style="color:#f92672">=</span> current_page.data.title <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;The Middleman&#34;</span> %&gt;&lt;/title&gt;
+    &lt;!-- Use title <span style=color:#66d9ef>if</span> it<span style=color:#960050;background-color:#1e0010>&#39;</span>s in the page YAML frontmatter --&gt;
+    &lt;title&gt;&lt;%<span style=color:#f92672>=</span> current_page.data.title <span style=color:#f92672>||</span> <span style=color:#e6db74>&#34;The Middleman&#34;</span> %&gt;&lt;/title&gt;
 
-    &lt;%<span style="color:#f92672">=</span> stylesheet_link_tag <span style="color:#e6db74">&#34;normalize&#34;</span>, <span style="color:#e6db74">&#34;all&#34;</span> %&gt;
-    &lt;%<span style="color:#f92672">=</span> javascript_include_tag  <span style="color:#e6db74">&#34;all&#34;</span> %&gt;
+    &lt;%<span style=color:#f92672>=</span> stylesheet_link_tag <span style=color:#e6db74>&#34;normalize&#34;</span>, <span style=color:#e6db74>&#34;all&#34;</span> %&gt;
+    &lt;%<span style=color:#f92672>=</span> javascript_include_tag  <span style=color:#e6db74>&#34;all&#34;</span> %&gt;
   &lt;/head&gt;
 
-  &lt;body class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;%= page_classes %&gt;&#34;</span>&gt;
-    &lt;%<span style="color:#f92672">=</span> yield %&gt;
+  &lt;body class<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&lt;%= page_classes %&gt;&#34;</span>&gt;
+    &lt;%<span style=color:#f92672>=</span> yield %&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></div><p>Notate le variabili <code>current_page.data.title</code> e <code>yield</code> citati in precedenza e alle quali saranno sostituiti rispettivamente i valori di <em>title</em> del frontmater e del contenuto html che compone la pagina.</p>
-<p>All&rsquo;occhio balzano anche le righe <code>&lt;%= stylesheet_link_tag &quot;normalize&quot;, &quot;all&quot; %&gt;</code> e <code>&lt;%= javascript_include_tag  &quot;all&quot; %&gt;</code>; esse sono dei <em>template helpers</em> che approfondiremo tra poco.</p>
-<p>In fase di building (sia durante lo sviluppo che in fase di deploy), Middleman crea una pagina <code>index.html</code> partendo dal <code>layout.html.erb</code> e sostituendovi i valori delle variabili e del contenuto del file <code>index.html.erb</code>.
-Il file ottenuto è</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!doctype html&gt;</span>
-&lt;<span style="color:#f92672">html</span>&gt;
-  &lt;<span style="color:#f92672">head</span>&gt;
-    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+</code></pre></div><p>Notate le variabili <code>current_page.data.title</code> e <code>yield</code> citati in precedenza e alle quali saranno sostituiti rispettivamente i valori di <em>title</em> del frontmater e del contenuto html che compone la pagina.</p><p>All&rsquo;occhio balzano anche le righe <code>&lt;%= stylesheet_link_tag "normalize", "all" %></code> e <code>&lt;%= javascript_include_tag "all" %></code>; esse sono dei <em>template helpers</em> che approfondiremo tra poco.</p><p>In fase di building (sia durante lo sviluppo che in fase di deploy), Middleman crea una pagina <code>index.html</code> partendo dal <code>layout.html.erb</code> e sostituendovi i valori delle variabili e del contenuto del file <code>index.html.erb</code>.
+Il file ottenuto è</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#75715e>&lt;!doctype html&gt;</span>
+&lt;<span style=color:#f92672>html</span>&gt;
+  &lt;<span style=color:#f92672>head</span>&gt;
+    &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>charset</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span>&gt;
 
-    <span style="color:#75715e">&lt;!-- Always force latest IE rendering engine or request Chrome Frame --&gt;</span>
-    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge,chrome=1&#34;</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span>&gt;
+    <span style=color:#75715e>&lt;!-- Always force latest IE rendering engine or request Chrome Frame --&gt;</span>
+    &lt;<span style=color:#f92672>meta</span> <span style=color:#a6e22e>content</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;IE=edge,chrome=1&#34;</span> <span style=color:#a6e22e>http-equiv</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;X-UA-Compatible&#34;</span>&gt;
 
-    <span style="color:#75715e">&lt;!-- Use title if it&#39;s in the page YAML frontmatter --&gt;</span>
-    &lt;<span style="color:#f92672">title</span>&gt;Welcome to Middleman&lt;/<span style="color:#f92672">title</span>&gt;
+    <span style=color:#75715e>&lt;!-- Use title if it&#39;s in the page YAML frontmatter --&gt;</span>
+    &lt;<span style=color:#f92672>title</span>&gt;Welcome to Middleman&lt;/<span style=color:#f92672>title</span>&gt;
 
-    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/stylesheets/normalize.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/stylesheets/all.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
-    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/javascripts/all.js&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-  &lt;/<span style="color:#f92672">head</span>&gt;
+    &lt;<span style=color:#f92672>link</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/stylesheets/normalize.css&#34;</span> <span style=color:#a6e22e>rel</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/css&#34;</span> /&gt;&lt;<span style=color:#f92672>link</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/stylesheets/all.css&#34;</span> <span style=color:#a6e22e>rel</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/css&#34;</span> /&gt;
+    &lt;<span style=color:#f92672>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/javascripts/all.js&#34;</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text/javascript&#34;</span>&gt;&lt;/<span style=color:#f92672>script</span>&gt;
+  &lt;/<span style=color:#f92672>head</span>&gt;
 
-  &lt;<span style="color:#f92672">body</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;index&#34;</span>&gt;
-    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welcome&#34;</span>&gt;
-  &lt;<span style="color:#f92672">h1</span>&gt;Middleman is Watching&lt;/<span style="color:#f92672">h1</span>&gt;
-  &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;doc&#34;</span>&gt;
-    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://middlemanapp.com/&#34;</span>&gt;Read Online Documentation&lt;/<span style="color:#f92672">a</span>&gt;
-  &lt;/<span style="color:#f92672">p</span>&gt;<span style="color:#75715e">&lt;!-- .doc --&gt;</span>
-&lt;/<span style="color:#f92672">div</span>&gt;<span style="color:#75715e">&lt;!-- .welcome --&gt;</span>
-  &lt;/<span style="color:#f92672">body</span>&gt;
-&lt;/<span style="color:#f92672">html</span>&gt;
-</code></pre></div><p>Per non associare nessun layout ad una pagina, per esempio alla sitemap, nel file <code>config.rb</code> inserite la riga</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">page <span style="color:#e6db74">&#34;/path/to/file.html&#34;</span>, :layout <span style="color:#f92672">=</span>&gt; false
-</code></pre></div><p>oppure la riga</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">...
+  &lt;<span style=color:#f92672>body</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;index&#34;</span>&gt;
+    &lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;welcome&#34;</span>&gt;
+  &lt;<span style=color:#f92672>h1</span>&gt;Middleman is Watching&lt;/<span style=color:#f92672>h1</span>&gt;
+  &lt;<span style=color:#f92672>p</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;doc&#34;</span>&gt;
+    &lt;<span style=color:#f92672>a</span> <span style=color:#a6e22e>href</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://middlemanapp.com/&#34;</span>&gt;Read Online Documentation&lt;/<span style=color:#f92672>a</span>&gt;
+  &lt;/<span style=color:#f92672>p</span>&gt;<span style=color:#75715e>&lt;!-- .doc --&gt;</span>
+&lt;/<span style=color:#f92672>div</span>&gt;<span style=color:#75715e>&lt;!-- .welcome --&gt;</span>
+  &lt;/<span style=color:#f92672>body</span>&gt;
+&lt;/<span style=color:#f92672>html</span>&gt;
+</code></pre></div><p>Per non associare nessun layout ad una pagina, per esempio alla sitemap, nel file <code>config.rb</code> inserite la riga</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>page <span style=color:#e6db74>&#34;/path/to/file.html&#34;</span>, :layout <span style=color:#f92672>=</span>&gt; false
+</code></pre></div><p>oppure la riga</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>...
 layout: false
 ...
-</code></pre></div><p>all&rsquo;interno del frontmatter della pagina in questione.</p>
-<h4 id="partials">Partials</h4>
-<p>Sebbene l&rsquo;utilizzo del file <code>layout</code> semplifichi molto la creazione del sito, molto spesso è preferibile dividere in più file  le varie sezioni della pagina.
+</code></pre></div><p>all&rsquo;interno del frontmatter della pagina in questione.</p><h4 id=partials>Partials</h4><p>Sebbene l&rsquo;utilizzo del file <code>layout</code> semplifichi molto la creazione del sito, molto spesso è preferibile dividere in più file le varie sezioni della pagina.
 Per fare ciò, Middleman mette a disposizione i cosiddetti <em>partial</em>: file parziali che vengono inclusi all&rsquo;interno del layout.
-La comodità dei partial sta nel semplificare il file di layout, e quindi la sua manutenibilità, e nel riutilizzo di parti di layout in caso di presenza di moltepici layout all&rsquo;interno del progetto.</p>
-<p>Supponendo di avere un file <code>_header.erb</code> nella cartella partials così definito:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;head&gt;
-  &lt;meta charset<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+La comodità dei partial sta nel semplificare il file di layout, e quindi la sua manutenibilità, e nel riutilizzo di parti di layout in caso di presenza di moltepici layout all&rsquo;interno del progetto.</p><p>Supponendo di avere un file <code>_header.erb</code> nella cartella partials così definito:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;head&gt;
+  &lt;meta charset<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span>&gt;
 
   &lt;!-- Always force latest IE rendering engine or request Chrome Frame --&gt;
-  &lt;meta content<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge,chrome=1&#34;</span> http-equiv<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span>&gt;
+  &lt;meta content<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;IE=edge,chrome=1&#34;</span> http-equiv<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;X-UA-Compatible&#34;</span>&gt;
 
-  &lt;!-- Use title <span style="color:#66d9ef">if</span> it<span style="color:#960050;background-color:#1e0010">&#39;</span>s in the page YAML frontmatter --&gt;
-  &lt;title&gt;&lt;%<span style="color:#f92672">=</span> current_page.data.title <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;The Middleman&#34;</span> %&gt;&lt;/title&gt;
+  &lt;!-- Use title <span style=color:#66d9ef>if</span> it<span style=color:#960050;background-color:#1e0010>&#39;</span>s in the page YAML frontmatter --&gt;
+  &lt;title&gt;&lt;%<span style=color:#f92672>=</span> current_page.data.title <span style=color:#f92672>||</span> <span style=color:#e6db74>&#34;The Middleman&#34;</span> %&gt;&lt;/title&gt;
 
-  &lt;%<span style="color:#f92672">=</span> stylesheet_link_tag <span style="color:#e6db74">&#34;normalize&#34;</span>, <span style="color:#e6db74">&#34;all&#34;</span> %&gt;
-  &lt;%<span style="color:#f92672">=</span> javascript_include_tag  <span style="color:#e6db74">&#34;all&#34;</span> %&gt;
+  &lt;%<span style=color:#f92672>=</span> stylesheet_link_tag <span style=color:#e6db74>&#34;normalize&#34;</span>, <span style=color:#e6db74>&#34;all&#34;</span> %&gt;
+  &lt;%<span style=color:#f92672>=</span> javascript_include_tag  <span style=color:#e6db74>&#34;all&#34;</span> %&gt;
 &lt;/head&gt;
-</code></pre></div><p>il file di layout corrispondente si presenta in questo modo</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;!doctype html&gt;
+</code></pre></div><p>il file di layout corrispondente si presenta in questo modo</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;!doctype html&gt;
 &lt;html&gt;
-  &lt;%<span style="color:#f92672">=</span> partial <span style="color:#e6db74">&#34;partials/header&#34;</span> %&gt;
+  &lt;%<span style=color:#f92672>=</span> partial <span style=color:#e6db74>&#34;partials/header&#34;</span> %&gt;
 
-  &lt;body class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;%= page_classes %&gt;&#34;</span>&gt;
-    &lt;%<span style="color:#f92672">=</span> yield %&gt;
+  &lt;body class<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&lt;%= page_classes %&gt;&#34;</span>&gt;
+    &lt;%<span style=color:#f92672>=</span> yield %&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></div><p>Notare: il nome del partial inizia con underscore _ , che non viene inserito nel nome nell&rsquo;inclusione, e non ha estensione html!</p>
-<h4 id="layout-multipli">Layout multipli</h4>
-<p>Middleman offre la possibilità di definire molteplici layout all&rsquo;interno di un&rsquo;applicazione.
+</code></pre></div><p>Notare: il nome del partial inizia con underscore _ , che non viene inserito nel nome nell&rsquo;inclusione, e non ha estensione html!</p><h4 id=layout-multipli>Layout multipli</h4><p>Middleman offre la possibilità di definire molteplici layout all&rsquo;interno di un&rsquo;applicazione.
 Questo risulta particolarmente comodo quando un sito presenta pagine con template differenti.
-I layout multipli possono condividere un layout comune di base(vedi i &lsquo;layout annidati&rsquo;).</p>
-<p>Per definire un nuovo layout basta creare il file corrispondente all&rsquo;interno della cartella <code>layout</code>, ad esempio <code>altLayout.html.erb</code>.
-Per associare un layout ad una pagina si può procedere in uno dei seguenti modi.</p>
-<ol>
-<li>
-<p>Richiamarlo nel frontmatter della pagina</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">---
+I layout multipli possono condividere un layout comune di base(vedi i &lsquo;layout annidati&rsquo;).</p><p>Per definire un nuovo layout basta creare il file corrispondente all&rsquo;interno della cartella <code>layout</code>, ad esempio <code>altLayout.html.erb</code>.
+Per associare un layout ad una pagina si può procedere in uno dei seguenti modi.</p><ol><li><p>Richiamarlo nel frontmatter della pagina</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>---
 title: pagina con altro layout
 layout: altLayout
 ---
 
 &lt;div&gt;&lt;/div&gt;
-</code></pre></div></li>
-<li>
-<p>Nel file <code>config.rb</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">...
-page <span style="color:#e6db74">&#39;nome_pagina_con_altro_layout&#39;</span>, :layout <span style="color:#f92672">=</span>&gt; <span style="color:#e6db74">&#39;altLayout&#39;</span>
+</code></pre></div></li><li><p>Nel file <code>config.rb</code></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>...
+page <span style=color:#e6db74>&#39;nome_pagina_con_altro_layout&#39;</span>, :layout <span style=color:#f92672>=</span>&gt; <span style=color:#e6db74>&#39;altLayout&#39;</span>
 ...
-</code></pre></div></li>
-</ol>
-<h4 id="layout-annidati---ovvero-come-ti-eredito-un-layout">Layout annidati - ovvero come ti eredito un layout</h4>
-<p>Middleman permette quella che potremmo definire &lsquo;eredità&rsquo; dei layout. In alte parole si possono definire più layout impilati.
+</code></pre></div></li></ol><h4 id=layout-annidati---ovvero-come-ti-eredito-un-layout>Layout annidati - ovvero come ti eredito un layout</h4><p>Middleman permette quella che potremmo definire &lsquo;eredità&rsquo; dei layout. In alte parole si possono definire più layout impilati.
 Un esempio di layout annidati lo avete con questo blog: il layout che si applica alle pagine statiche è stato implementato e ampliato per essere applicato ai post del blog.
-L&rsquo;associazione del layout alla pagina procede allo stesso modo di quanto visto nei layout multipli.</p>
-<p>Prendendo come esempio il file <code>layout.html.erb</code> visto in precedenza come layout base, si è creato un file <code>article.html.erb</code> per applicarlo alle sole pagine dei post.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&lt;% wrap_layout :layout <span style="color:#66d9ef">do</span> %&gt;
+L&rsquo;associazione del layout alla pagina procede allo stesso modo di quanto visto nei layout multipli.</p><p>Prendendo come esempio il file <code>layout.html.erb</code> visto in precedenza come layout base, si è creato un file <code>article.html.erb</code> per applicarlo alle sole pagine dei post.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;% wrap_layout :layout <span style=color:#66d9ef>do</span> %&gt;
   &lt;article&gt;
-    &lt;%<span style="color:#f92672">=</span> yield %&gt;
+    &lt;%<span style=color:#f92672>=</span> yield %&gt;
   &lt;/article&gt;
 &lt;% end %&gt;
-</code></pre></div><p>In questo modo, Middleman sostituisce la vaiabile <code>yield</code> del layout <code>layout</code> con il contenuto del nuovo layout.</p>
-<h4 id="template-helpers">Template helpers</h4>
-<p>I template helpers non sono altro che degli <em>shortcut</em> che è possibile inserire all&rsquo;interno dei layout per velocizzare la scrittura del progetto.
-I più usati sono:</p>
-<ul>
-<li>stylesheet_link_tag &lsquo;layout&rsquo;, per l&rsquo;inclusione di un file css</li>
-<li>javascript_include_tag &lsquo;application&rsquo;, per inclusione file javascript</li>
-<li>favicon_tag &lsquo;images/favicon.png, per le favicon</li>
-<li>link_to &lsquo;My Site&rsquo;, &lsquo;<a href="http://mysite.com">http://mysite.com</a>&rsquo;, genera un link html</li>
-<li>content_for :assets do, racchiude un blocco di codice che verrà sostituito all&rsquo;interno del layout</li>
-</ul>
-<p>Per un&rsquo;approfondimento si rimanda allla sezione <a href="http://middlemanapp.com/basics/helpers/">helpers</a> del sito di Middleman.</p>
-<h3 id="passo-5-la-compilazione">Passo 5: La compilazione</h3>
-<p>La compilazione di un progetto si effettua con il comando:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ bundle exec middleman build
+</code></pre></div><p>In questo modo, Middleman sostituisce la vaiabile <code>yield</code> del layout <code>layout</code> con il contenuto del nuovo layout.</p><h4 id=template-helpers>Template helpers</h4><p>I template helpers non sono altro che degli <em>shortcut</em> che è possibile inserire all&rsquo;interno dei layout per velocizzare la scrittura del progetto.
+I più usati sono:</p><ul><li>stylesheet_link_tag &lsquo;layout&rsquo;, per l&rsquo;inclusione di un file css</li><li>javascript_include_tag &lsquo;application&rsquo;, per inclusione file javascript</li><li>favicon_tag &lsquo;images/favicon.png, per le favicon</li><li>link_to &lsquo;My Site&rsquo;, &lsquo;<a href=http://mysite.com>http://mysite.com</a>&rsquo;, genera un link html</li><li>content_for :assets do, racchiude un blocco di codice che verrà sostituito all&rsquo;interno del layout</li></ul><p>Per un&rsquo;approfondimento si rimanda allla sezione <a href=http://middlemanapp.com/basics/helpers/>helpers</a> del sito di Middleman.</p><h3 id=passo-5-la-compilazione>Passo 5: La compilazione</h3><p>La compilazione di un progetto si effettua con il comando:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ bundle exec middleman build
 </code></pre></div><p>All&rsquo;interno della directory <code>build</code> troverete le pagine html, i file css e javascript pronti per essere caricati sul server.
 Nella sezione <code>configure :build do</code> del <code>config.rb</code> potete modificare alcune preferenze da applicare solo in fase di compilazione.
-Risultano molto utili i <em>minify</em> e i <em>compress</em> per ottenere i file html, css e javascript già ridotti nelle dimensioni.</p>
-<h3 id="passo-6-il-deploy">Passo 6: Il deploy</h3>
-<p>L&rsquo;ultimo passo è la pubblicazione del sito.
-A seconda dell&rsquo;hosting scelto, avete a disposizione varie strade:ftp, git, interfaccia web &hellip;
+Risultano molto utili i <em>minify</em> e i <em>compress</em> per ottenere i file html, css e javascript già ridotti nelle dimensioni.</p><h3 id=passo-6-il-deploy>Passo 6: Il deploy</h3><p>L&rsquo;ultimo passo è la pubblicazione del sito.
+A seconda dell&rsquo;hosting scelto, avete a disposizione varie strade:ftp, git, interfaccia web &mldr;
 Middleman offre alcune estensione atte a tale scopo.
-Personalmente utilizzo <code>middleman-deploy</code> che risulta essere molto versatile in quanto offre la possibilita di effetuare il deploy in molteplici modi.</p>
-<h3 id="le-estensioni">Le estensioni</h3>
-<p>Guardando la pagina delle <a href="http://directory.middlemanapp.com/#/extensions/all">estensioni</a> di Middleman si trovano molte estensioni che posso facilitare e velocizzare il proprio lavoro.
-E&rsquo; inoltre molto facile scriverne di nuove e in rete si trovano molte guide per farlo.</p>
-<h3 id="conclusioni">Conclusioni</h3>
-<p>Questa breve introduzione a Middleman ha il solo scopo di aiutare a capire uno strumento leggero ma al tempo stesso potente per la creazione di siti.</p>
-
-    </div>
-  </article>
-  
-  
-    <section class="mt2 mb2">
-    <div id="disqus_thread"></div>
-    <script type="text/plain" class="_iub_cs_activate" data-iub-purposes="3">
+Personalmente utilizzo <code>middleman-deploy</code> che risulta essere molto versatile in quanto offre la possibilita di effetuare il deploy in molteplici modi.</p><h3 id=le-estensioni>Le estensioni</h3><p>Guardando la pagina delle <a href=http://directory.middlemanapp.com/#/extensions/all>estensioni</a> di Middleman si trovano molte estensioni che posso facilitare e velocizzare il proprio lavoro.
+E&rsquo; inoltre molto facile scriverne di nuove e in rete si trovano molte guide per farlo.</p><h3 id=conclusioni>Conclusioni</h3><p>Questa breve introduzione a Middleman ha il solo scopo di aiutare a capire uno strumento leggero ma al tempo stesso potente per la creazione di siti.</p></div></article><section class="mt2 mb2"><div id=disqus_thread></div><script type=text/plain class=_iub_cs_activate data-iub-purposes=3>
 
     (function() {
         // Don't ever inject Disqus on localhost--it creates unwanted
@@ -360,45 +162,5 @@ E&rsquo; inoltre molto facile scriverne di nuove e in rete si trovano molte guid
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</section>
-  
-
-            </main><footer class="bg-near-black white-80 pv4 pv3-l ph3 ph0-l db bb border-box">
-   <div class="w-100 w-50-l center">
-      <div>
-         <a href="https://www.iubenda.com/privacy-policy/13294331" class="iubenda-white iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
-         <a href="https://www.iubenda.com/privacy-policy/13294331/cookie-policy" class="iubenda-white iubenda-embed" title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
-
-      </div>
-      <div class="mv1">
-         <p>4l3c a.k.a. Alessandro Bernardi - 2020</p>
-         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Eccetto ove diversamente indicato, quest'opera è distribuita con Licenza <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" class="link dim blue">Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale</a>.</p>
-      </div>
-      <div class="mv2 pt2">
-         Powered by <a href="https://gohugo.io/" target="_blank" class="link dim blue">Hugo</a> + <a href="http://tachyons.io/" target="_blank" class="link dim blue">Tachyons</a>
-      </div>
-   </div>
-</footer>
-
-<script src="/dist/js/main.31d6cfe0d16ae931b73c.js"></script>
-
-    
-<script type="application/javascript">
-var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-var doNotTrack = (dnt == "1" || dnt == "yes");
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-18092151-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-    </body>
-</html>
+    </script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></section></main><footer class="bg-near-black white-80 pv4 pv3-l ph3 ph0-l db bb border-box"><div class="w-100 w-50-l center"><div><a href=https://www.iubenda.com/privacy-policy/13294331 class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type=text/javascript>(function(w,d){var loader=function(){var s=d.createElement("script"),tag=d.getElementsByTagName("script")[0];s.src="https://cdn.iubenda.com/iubenda.js";tag.parentNode.insertBefore(s,tag);};if(w.addEventListener){w.addEventListener("load",loader,false);}else if(w.attachEvent){w.attachEvent("onload",loader);}else{w.onload=loader;}})(window,document);</script>
+<a href=https://www.iubenda.com/privacy-policy/13294331/cookie-policy class="iubenda-white iubenda-embed" title="Cookie Policy">Cookie Policy</a><script type=text/javascript>(function(w,d){var loader=function(){var s=d.createElement("script"),tag=d.getElementsByTagName("script")[0];s.src="https://cdn.iubenda.com/iubenda.js";tag.parentNode.insertBefore(s,tag);};if(w.addEventListener){w.addEventListener("load",loader,false);}else if(w.attachEvent){w.attachEvent("onload",loader);}else{w.onload=loader;}})(window,document);</script></div><div class=mv1><p>4l3c a.k.a. Alessandro Bernardi - 2020</p><p><a rel=license href=http://creativecommons.org/licenses/by-sa/4.0/><img alt="Licenza Creative Commons" style=border-width:0 src=https://i.creativecommons.org/l/by-sa/4.0/88x31.png></a><br>Eccetto ove diversamente indicato, quest'opera è distribuita con Licenza <a rel=license href=http://creativecommons.org/licenses/by-sa/4.0/ class="link dim blue">Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale</a>.</p></div><div class="mv2 pt2">Powered by <a href=https://gohugo.io/ target=_blank class="link dim blue" rel="nofollow, noreferrer">Hugo</a> + <a href=http://tachyons.io/ target=_blank class="link dim blue" rel="nofollow, noreferrer">Tachyons</a></div></div></footer><script src=/dist/js/main.31d6cfe0d16ae931b73c.js></script><script type=application/javascript>var dnt=(navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack);var doNotTrack=(dnt=="1"||dnt=="yes");if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-18092151-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>

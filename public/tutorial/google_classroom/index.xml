@@ -1,61 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Google Classroom - un (breve) tutorial on 4l3c</title>
-    <link>https://www.4l3c.org/tutorial/google_classroom/</link>
-    <description>Recent content in Google Classroom - un (breve) tutorial on 4l3c</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>it</language>
-    <lastBuildDate>Fri, 13 Mar 2015 12:00:00 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tutorial/google_classroom/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>1 - Creare una lezione</title>
-      <link>https://www.4l3c.org/tutorial/google_classroom/creare_lezione/</link>
-      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/tutorial/google_classroom/creare_lezione/</guid>
-      <description>E&#39; possibile creare una lezione sia da browser che tramite l&amp;rsquo;app.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Google Classroom - un (breve) tutorial on 4l3c</title><link>https://www.4l3c.org/tutorial/google_classroom/</link><description>Recent content in Google Classroom - un (breve) tutorial on 4l3c</description><generator>Hugo -- gohugo.io</generator><language>it</language><lastBuildDate>Fri, 13 Mar 2015 12:00:00 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tutorial/google_classroom/index.xml" rel="self" type="application/rss+xml"/><item><title>1 - Creare una lezione</title><link>https://www.4l3c.org/tutorial/google_classroom/creare_lezione/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tutorial/google_classroom/creare_lezione/</guid><description>E' possibile creare una lezione sia da browser che tramite l&amp;rsquo;app.
 Versione da browser Ecco i passi necessari per creare una lezione in Google Classroom utilizzando il browser:
-  accedere al sito https://classroom.google.com/h
-  in alto a destra, cliccare l&amp;rsquo;icona + affianco al vostro nome
-  selezionare la voce &amp;ldquo;Crea lezione&amp;rdquo;
-  assegnare un nome ed eventualmente una descrizione alla lezione
-  nella home page della lezione è presente il &amp;ldquo;Codice di classe&amp;rdquo; da condividere con gli studenti interessati a seguire la lezione</description>
-    </item>
-    
-    <item>
-      <title>2 - Condividere un documento</title>
-      <link>https://www.4l3c.org/tutorial/google_classroom/condividere_documento/</link>
-      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/tutorial/google_classroom/condividere_documento/</guid>
-      <description>E&#39; possibile condividere documenti, filmati, immagini con la classe. I file possono essere condivisi direttamente dal computer e saranno salvati nella vostra cartella Google Drive o da Google Drive stesso. Inoltre si possono condividere filmati da Youtube oppure URL per l&amp;rsquo;accesso a pagine internet.
+accedere al sito https://classroom.google.com/h
+in alto a destra, cliccare l&amp;rsquo;icona + affianco al vostro nome
+selezionare la voce &amp;ldquo;Crea lezione&amp;rdquo;
+assegnare un nome ed eventualmente una descrizione alla lezione
+nella home page della lezione è presente il &amp;ldquo;Codice di classe&amp;rdquo; da condividere con gli studenti interessati a seguire la lezione</description></item><item><title>2 - Condividere un documento</title><link>https://www.4l3c.org/tutorial/google_classroom/condividere_documento/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tutorial/google_classroom/condividere_documento/</guid><description>E' possibile condividere documenti, filmati, immagini con la classe. I file possono essere condivisi direttamente dal computer e saranno salvati nella vostra cartella Google Drive o da Google Drive stesso. Inoltre si possono condividere filmati da Youtube oppure URL per l&amp;rsquo;accesso a pagine internet.
 Versione da browser Ecco i passi necessari per condividere un documento in Google Classroom utilizzando il browser:
-  accedere alla pagina del corso su https://classroom.google.com/h</description>
-    </item>
-    
-    <item>
-      <title>3 - Assegnare un compito</title>
-      <link>https://www.4l3c.org/tutorial/google_classroom/assegnare_compito/</link>
-      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/tutorial/google_classroom/assegnare_compito/</guid>
-      <description>E&#39; possibile assegnare compiti alla classe da svolgere entro una data. In seguito, l&amp;rsquo;insegnante potrà correggere, valutare e riconsegnare i compiti.
+accedere alla pagina del corso su https://classroom.google.com/h</description></item><item><title>3 - Assegnare un compito</title><link>https://www.4l3c.org/tutorial/google_classroom/assegnare_compito/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tutorial/google_classroom/assegnare_compito/</guid><description>E' possibile assegnare compiti alla classe da svolgere entro una data. In seguito, l&amp;rsquo;insegnante potrà correggere, valutare e riconsegnare i compiti.
 Versione da browser Ecco i passi necessari per assegnare un compito in Google Classroom utilizzando il browser:
-  accedere alla pagina del corso su https://classroom.google.com/h
-  scegliere il corso nel quale si vuole condividere un documento
-  cliccare su &amp;ldquo;Compito&amp;rdquo;
-  assegnare un nome al compito</description>
-    </item>
-    
-    <item>
-      <title>Introduzione</title>
-      <link>https://www.4l3c.org/tutorial/google_classroom/introduzione/</link>
-      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/tutorial/google_classroom/introduzione/</guid>
-      <description>Google ha rilasciato gratuitamente per le scuole Google App for Education. Questa suite comprende le app tradizioni di Google: Gmail, Drive, Youtube, Docs, Fogli, Presentazioni e in più si trova inclusa Classroom, un&#39; app studiata appositamente per la didattica. Classroom è costruita sul concetto di corso: un docente tiene un insegnamento ad una o più classi.
-Ogni corso è costituito da annunci e compito che l&amp;rsquo;insegnate condivide con gli studenti che seguono il corso.</description>
-    </item>
-    
-  </channel>
-</rss>
+accedere alla pagina del corso su https://classroom.google.com/h
+scegliere il corso nel quale si vuole condividere un documento
+cliccare su &amp;ldquo;Compito&amp;rdquo;
+assegnare un nome al compito</description></item><item><title>Introduzione</title><link>https://www.4l3c.org/tutorial/google_classroom/introduzione/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tutorial/google_classroom/introduzione/</guid><description>Google ha rilasciato gratuitamente per le scuole Google App for Education. Questa suite comprende le app tradizioni di Google: Gmail, Drive, Youtube, Docs, Fogli, Presentazioni e in più si trova inclusa Classroom, un' app studiata appositamente per la didattica. Classroom è costruita sul concetto di corso: un docente tiene un insegnamento ad una o più classi.
+Ogni corso è costituito da annunci e compito che l&amp;rsquo;insegnate condivide con gli studenti che seguono il corso.</description></item></channel></rss>
