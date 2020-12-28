@@ -8,7 +8,7 @@ sectionPagesMenu                = "main"
 
 disqusshortname                 = "4l3cdotorg"
 googleAnalytics                 = "UA-18092151-1"
-
+enableRobotsTXT                 = "true"
 
 [permalinks]
   posts                         = "/:year/:month/:title/"
@@ -30,13 +30,14 @@ googleAnalytics                 = "UA-18092151-1"
   twitter                     = "https://twitter.com/alexberny"
   # instagram                  = ""
   youtube                     = "https://www.youtube.com/c/AlessandroBernardi-4l3c"
-  # github                     = ""
+  github                      = "https://github.com/alexberny"
   # gitlab                     = ""
   linkedin                    = "https://www.linkedin.com/in/alessandro-bernardi-17021979"
-  # mastodon = ""
+  mastodon                    = "https://mastodon.uno/@4l3c"
   # slack = ""
   # stackoverflow = ""
   # rss = ""
+  meta_description            = "Blog personale di 4l3c a.k.a. Alessandro Bernardi"
 
 [menu]
     [[menu.main]]
@@ -84,10 +85,6 @@ googleAnalytics                 = "UA-18092151-1"
 
   [languages]
     [languages.it]
-
-
-# disqusshortname                 = ""                     # https://gohugo.io/content-management/comments
-# googleAnalytics                 = ""                     # https://gohugo.io/templates/internal/#google-analytics
 
 # [params]
 #     themeStyle                   = "dark"                 # Choose "light" or "dark"
