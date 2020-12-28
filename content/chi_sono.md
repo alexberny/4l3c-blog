@@ -6,7 +6,8 @@ tags:
     - "Chi sono"
 menu:
     main:
-        weight: 1
+        weight: 100
+show_comments: false
 ---
 
 # Salve!

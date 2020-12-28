@@ -1,0 +1,16 @@
+/* TEAM */
+Design and Development: Alessandro Bernardi
+Contact: alexberny@yahoo.it
+Site: https://www.4l3c.org
+https://www.google.com/+AlessandroBernardi-4l3c
+Twitter: @alexberny
+Facebook: alessandro.bernardi
+From: Cori, IT
+
+/* SITE */
+Last update: 2020-12-28
+Language: Italiano
+Standards: HTML5, CSS3
+Doctype: HTML5
+Components: Tachynos
+Software: GoHugo, Git, VSCode, vim, nodejs, npm, webpack

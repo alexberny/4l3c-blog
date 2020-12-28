@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on 4l3c a.k.a. Alessandro Bernardi </title>
+    <title>Categories on 4l3c</title>
     <link>https://www.4l3c.org/categories/</link>
-    <description>Recent content in Categories on 4l3c a.k.a. Alessandro Bernardi </description>
+    <description>Recent content in Categories on 4l3c</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>it</language>
-    <copyright>4l3c</copyright><atom:link href="https://www.4l3c.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>it</language><atom:link href="https://www.4l3c.org/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

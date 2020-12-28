@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="it"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="https://www.4l3c.org/">
+    <title>Samba AD su Debian Wheezy | 4l3c</title>
+   
+    
+    
+      <link href="/dist/css/main.b3d61d18c1a7ac86cb25.css" rel="stylesheet">
+    
+
+    
+    <script src="https://kit.fontawesome.com/fde4160ead.js" crossorigin="anonymous"></script>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
+    
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"ccpaAcknowledgeOnDisplay":true,"whitelabel":false,"lang":"it","siteId":2107002,"enableCcpa":true,"countryDetection":true,"perPurposeConsent":true,"cookiePolicyId":13294331, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-top-center","rejectButtonDisplay":true }};
+</script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/ccpa/stub.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <meta property="og:title" content="Samba AD su Debian Wheezy" />
+<meta property="og:description" content="Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux Enterprise.
+Con poche modifiche la guida è valida anche per altre distro Linux supportate da SerNet Samba.
+Configurazioni I parametri di configurazione di esempio seguiti in questa guida sono:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/" />
+<meta property="article:published_time" content="2014-10-19T12:34:00+00:00" />
+<meta property="article:modified_time" content="2014-10-19T12:34:00+00:00" />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Samba AD su Debian Wheezy"/>
+<meta name="twitter:description" content="Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux Enterprise.
+Con poche modifiche la guida è valida anche per altre distro Linux supportate da SerNet Samba.
+Configurazioni I parametri di configurazione di esempio seguiti in questa guida sono:"/>
+
+    <script type="application/ld+json">
+    
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Samba AD su Debian Wheezy",
+      "image": "https://www.4l3c.org/",
+      "datePublished": "2014-10-19T12:34:00Z",
+      "dateModified": "2014-10-19T12:34:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Bernardi"
+      },
+      "mainEntityOfPage": { "@type": "WebPage" },
+       "publisher": {
+        "@type": "Organization",
+        "name":  null ,
+        "logo": {
+          "@type": "ImageObject",
+          "url":  null 
+        }
+      },
+      "description": "Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux Enterprise.\nCon poche modifiche la guida è valida anche per altre distro Linux supportate da SerNet Samba.\nConfigurazioni I parametri di configurazione di esempio seguiti in questa guida sono:",
+      "keywords": ["Samba", "Debian"]
+    }
+    
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "4l3c",
+      "url": "https://www.4l3c.org/",
+      "sameAs": [
+        "https://www.facebook.com/https:\/\/www.facebook.com\/alessandro.bernardi",
+        "https://www.instagram.com/",
+        "https://twitter.com/https:\/\/twitter.com\/alexberny",
+        "https://github.com/"
+      ]
+    }
+    </script>
+</head><body class="w-100 debug-grid">
+        <header class="w-100 w-50-ns tc pv3 center">
+    <h1 class="dib site-name pa2">
+        4l3c
+    </h1>
+    <span>a.k.a. Alessandro Bernardi</span>
+</header><nav id="mainMenu" class="w-100 w-50-l center dt pv4 pv3-l ph3 ph0-l db bb border-box" role="navigation">
+    <div class="w-100 w-70-l db dtc-l">
+        
+        
+        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/" title="">Home</a>
+        
+        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/chi_sono/" title="Chi sono">Chi sono</a>
+        
+        <a class="sidebar-nav-item  active ph2 link dark-gray hover-blue" href="/posts/" title="Articoli">Articoli</a>
+        
+        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/tutorial/" title="Tutorial">Tutorial</a>
+        
+    </div>
+    <div class="w-100 w-30-l db dtc-l tr-l mt3 mv0-l">
+        <a class="link ph2 dark-gray hover-blue" href="https://www.facebook.com/alessandro.bernardi" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a class="link ph2 dark-gray hover-blue" href="https://twitter.com/alexberny" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a class="link ph2 dark-gray hover-blue" href="https://www.linkedin.com/in/alessandro-bernardi-17021979" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a class="link ph2 dark-gray hover-blue" href="https://www.youtube.com/c/AlessandroBernardi-4l3c" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+</nav><main class="w-100 w-50-l center ph3 ph0-l">
+                
+  <article>
+    <header>
+      <h1>Samba AD su Debian Wheezy</h1>
+      <span class="db dib-l mt2 w-50-l">                        
+        <i class="far fa-calendar-alt"></i> <time datetime="2014-10-19T12:34:00-08:00">19 October 2014</time>
+      </span>
+      <span class="db dib-l mt2 tr-l">
+          <i class="fas fa-tags"></i> 
+          
+              <a href="tags/samba" class="link dim blue">Samba</a>
+          
+              <a href="tags/debian" class="link dim blue">Debian</a>
+          
+      </span>
+    </header> 
+    <div class="mv5 lh-copy post-content">
+      <p>Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux <em>Enterprise</em>.</p>
+<p>Con poche modifiche la guida è valida anche per altre distro Linux supportate da SerNet Samba.</p>
+<h3 id="configurazioni">Configurazioni</h3>
+<p>I parametri di configurazione di esempio seguiti in questa guida sono:</p>
+<ul>
+<li>Nome del server: <strong>dominioad</strong></li>
+<li>Nome del dominio: <strong>test.miarete.it</strong></li>
+<li>Nome REALM KERBEROS o NETBIOS:  <strong>TEST</strong></li>
+<li>IP del server: <strong>192.168.1.80</strong></li>
+<li>Server Role: <strong>DC</strong></li>
+<li>Utente amminstratore del dominio: <strong>Administator</strong> (attenzione alla A maiuscola!)</li>
+<li>Password dell&rsquo;utente Administrator: <strong>P4ssWord</strong> (per ora la password deve avere almeno 7 caratteri ed essere abbastanza complessa)</li>
+</ul>
+<h3 id="prerequisiti">Prerequisiti</h3>
+<p>I servizi di Active Directory si basano su due servizi essenziali: il DNS e la sincronizzazione oraria.
+Si consiglia pertanto di installare un servizio NTP sul server in questo modo:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># apt-get install ntpdate</span>
+<span style="color:#75715e"># ntpdate it.pool.ntp.org</span>
+<span style="color:#75715e"># apt-get install ntp</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Vedremo invece più avanti l&rsquo;installazione di Bind9 come server DNS del dominio. Nel frattempo vediamo come impostare i file di configurazione di Debian.</p>
+<p>Configuriamo ora l&rsquo;ip statico del server editando la parte relativa alla scheda di rete nel file <em>/etc/network/interfaces</em></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">auto eth0
+iface eth0 inet static
+  address 192.168.1.80
+  netmask 255.255.255.0
+  gateway 192.168.1.1
+</code></pre></td></tr></table>
+</div>
+</div><p>Impostiamo il nome del server nel file <em>/etc/hostname</em></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dominioad.test.miarete.it
+</code></pre></td></tr></table>
+</div>
+</div><p>Ed infine modifichiamo il file <em>/etc/hosts</em></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">127.0.0.1 localhost
+<span style="color:#75715e">#127.0.1.1 dominioad dominioad.test.miarete.it &lt;-- commentare!!!</span>
+192.168.1.80 dominioad dominioad.test.miarete.it
+</code></pre></td></tr></table>
+</div>
+</div><p>L&rsquo;entry 127.0.1.1 va commentata in quanto puo' portare Bind a restituire risultati errati.</p>
+<p>Rendiamo effettive le modifiche con un reboot del server.</p>
+<p>Installiamo infine il transport-https di apt.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># apt-get install apt-transport-https</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="installazione-di-samba">Installazione di Samba</h3>
+<p>Innanzitutto occorre registrarsi al sito <a href="http://www.enterprisesamba.com">http://www.enterprisesamba.com</a> ed eseguire il login.
+Una volta entrati ci vengono offerte le indicazioni per effettuare l&rsquo;installazione di Samba e la username e la accesskey per effettuare il download.</p>
+<p>Editiamo il file <em>/etc/apt/sources.list</em> aggiungendo il repository:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#</span>
+<span style="color:#75715e"># SerNet Samba 4.1 Packages</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e"># (debian-wheezy)</span>
+<span style="color:#75715e">#</span>
+deb https://USERNAME:ACCESSKEY@download.sernet.de/packages/samba/4.1/debian wheezy main
+deb-src https://USERNAME:ACCESSKEY@download.sernet.de/packages/samba/4.1/debian wheezy main
+</code></pre></td></tr></table>
+</div>
+</div><p>Attenzione a sostituire <em>USERNAME:ACCESSKEY</em> con quelle presenti nella pagina di SerNet Samba!</p>
+<p>Importiamo la chiave GPG di SerNet Samba</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># wget http://ftp.sernet.de/pub/sernet-samba-keyring_1.4_all.deb</span>
+<span style="color:#75715e"># dpkg -i sernet-samba-keyring_1.4_all.deb</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Eseguiamo un update di apt, l&rsquo;installazione di Samba, di alcuni pacchetti suggeriti e di Bind9</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># apt-get update</span>
+<span style="color:#75715e"># apt-get install sernet-samba-ad</span>
+<span style="color:#75715e"># apt-get install fam acl attr quota</span>
+<span style="color:#75715e"># apt-get install bind9</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="configurazione-di-samba">Configurazione di Samba</h3>
+<p>Configuriamo Samba come server AD:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># samba-tool domain provision --use-rfc2307 --function-level=2008_R2 --interactive</span>
+Realm <span style="color:#f92672">[</span>TEST.MIARETE.IT<span style="color:#f92672">]</span>:
+ Domain <span style="color:#f92672">[</span>TEST<span style="color:#f92672">]</span>:
+ Server Role <span style="color:#f92672">(</span>dc, member, standalone<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>dc<span style="color:#f92672">]</span>:
+ DNS backend <span style="color:#f92672">(</span>SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>SAMBA_INTERNAL<span style="color:#f92672">]</span>: BIND9_DLZ
+Administrator password:
+Retype password:
+Looking up IPv4 addresses
+Looking up IPv6 addresses
+No IPv6 address will be assigned
+Setting up secrets.ldb
+Setting up the registry
+Setting up the privileges database
+Setting up idmap db
+Setting up SAM db
+Setting up sam.ldb partitions and settings
+Setting up sam.ldb rootDSE
+Pre-loading the Samba <span style="color:#ae81ff">4</span> and AD schema
+Adding DomainDN: DC<span style="color:#f92672">=</span>test,DC<span style="color:#f92672">=</span>miarete,DC<span style="color:#f92672">=</span>it
+Adding configuration container
+Setting up sam.ldb schema
+Setting up sam.ldb configuration data
+Setting up display specifiers
+Modifying display specifiers
+Adding users container
+Modifying users container
+Adding computers container
+Modifying computers container
+Setting up sam.ldb data
+Setting up well known security principals
+Setting up sam.ldb users and groups
+Setting up self join
+Adding DNS accounts
+Creating CN<span style="color:#f92672">=</span>MicrosoftDNS,CN<span style="color:#f92672">=</span>System,DC<span style="color:#f92672">=</span>test,DC<span style="color:#f92672">=</span>miarete,DC<span style="color:#f92672">=</span>it
+Creating DomainDnsZones and ForestDnsZones partitions
+Populating DomainDnsZones and ForestDnsZones partitions
+See /var/lib/samba/private/named.conf <span style="color:#66d9ef">for</span> an example configuration include file <span style="color:#66d9ef">for</span> BIND
+and /var/lib/samba/private/named.txt <span style="color:#66d9ef">for</span> further documentation required <span style="color:#66d9ef">for</span> secure DNS updates
+Setting up sam.ldb rootDSE marking as synchronized
+Fixing provision GUIDs
+A Kerberos configuration suitable <span style="color:#66d9ef">for</span> Samba <span style="color:#ae81ff">4</span> has been generated at /var/lib/samba/private/krb5.conf
+Setting up fake yp server settings
+Once the above files are installed, your Samba4 server will be ready to use
+Server Role:           active directory domain controller
+Hostname:              dominioad
+NetBIOS Domain:        TEST
+DNS Domain:            test.miarete.it
+DOMAIN SID:            S-1-5-21-1601127499-651562562-2929973973
+</code></pre></td></tr></table>
+</div>
+</div><p>L&rsquo;opzione <code>--interactive</code> ci permette di configurare i parametri in modo interattivo.</p>
+<p>L&rsquo;opzione <code>--use-rfc2307</code> abilita l&rsquo;estensione NIS che ci permette di gestire gli utenti/gruppi di Unix con il tool di gestione degli utenti/gruppi di AD di Microsoft. Questa opzione è facoltativa ma non puo' essere attivata in seguito. L&rsquo;abilitazione non comporta nessun effetto aggiuntivo se essa non viene utilizzata.</p>
+<p>L&rsquo;opzione <code>--function-level=2008_R2</code> imposta il livello di funzionalità di Samba a quello di un Windows Server 2008 R2.</p>
+<p>Durante la configurazione Samba vi propone i parametri di default, in questo caso vanno tutti bene (ruolo, dominio, REALM) tranne il server DNS che impostiamo a BIND9_DLZ per utilizzare Bind come server DNS.</p>
+<p>Ultimo avviso: la password di Administrator è impostata con una scadenza a 42 giorni, vedremo in seguito come modificare tale opzione.</p>
+<p>Modifichiamo il file <em>/etc/default/sernet-samba</em> impostando i seguenti parametri</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># SAMBA_START_MODE defines how Samba should be started. Valid options are one of</span>
+<span style="color:#75715e">#   &#34;none&#34;    to not enable it at all,</span>
+<span style="color:#75715e">#   &#34;classic&#34; to use the classic smbd/nmbd/winbind daemons</span>
+<span style="color:#75715e">#   &#34;ad&#34;      to use the Active Directory server (which starts the smbd on its own)</span>
+<span style="color:#75715e"># (Be aware that you also need to enable the services/init scripts that</span>
+<span style="color:#75715e"># automatically start up the desired daemons.)</span>
+SAMBA_START_MODE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ad&#34;</span>
+
+<span style="color:#75715e"># SAMBA_RESTART_ON_UPDATE defines if the the services should be restarted when</span>
+<span style="color:#75715e"># the RPMs are updated. Setting this to &#34;yes&#34; effectively enables the</span>
+<span style="color:#75715e"># functionality of the try-restart parameter of the init scripts.</span>
+SAMBA_RESTART_ON_UPDATE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yes&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Lanciamo il demone di Samba</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># service sernet-samba-ad start</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>ed effettuiamo un paio di test</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># smbclient -L localhost -U%</span>
+Domain<span style="color:#f92672">=[</span>TEST<span style="color:#f92672">]</span> OS<span style="color:#f92672">=[</span>Unix<span style="color:#f92672">]</span> Server<span style="color:#f92672">=[</span>Samba 4.1.12-SerNet-Debian-9.wheezy<span style="color:#f92672">]</span>
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+        netlogon        Disk
+        sysvol          Disk
+        IPC$            IPC       IPC Service <span style="color:#f92672">(</span>Samba 4.1.12-SerNet-Debian-9.wheezy<span style="color:#f92672">)</span>
+Domain<span style="color:#f92672">=[</span>TEST<span style="color:#f92672">]</span> OS<span style="color:#f92672">=[</span>Unix<span style="color:#f92672">]</span> Server<span style="color:#f92672">=[</span>Samba 4.1.12-SerNet-Debian-9.wheezy<span style="color:#f92672">]</span>
+
+        Server               Comment
+        ---------            -------
+
+        Workgroup            Master
+        ---------            -------
+<span style="color:#75715e"># smbclient //localhost/netlogon -UAdministrator -c &#39;ls&#39;</span>
+Enter Administrator<span style="color:#960050;background-color:#1e0010">&#39;</span>s password:
+Domain<span style="color:#f92672">=[</span>TEST<span style="color:#f92672">]</span> OS<span style="color:#f92672">=[</span>Unix<span style="color:#f92672">]</span> Server<span style="color:#f92672">=[</span>Samba 4.1.12-SerNet-Debian-9.wheezy<span style="color:#f92672">]</span>
+  .                                   D        <span style="color:#ae81ff">0</span>  Sun Oct <span style="color:#ae81ff">19</span> 15:14:48 <span style="color:#ae81ff">2014</span>
+  ..                                  D        <span style="color:#ae81ff">0</span>  Sun Oct <span style="color:#ae81ff">19</span> 15:14:55 <span style="color:#ae81ff">2014</span>
+
+                <span style="color:#ae81ff">61467</span> blocks of size 131072. <span style="color:#ae81ff">48297</span> blocks available
+</code></pre></td></tr></table>
+</div>
+</div><p>Bene, se tutto è andato a buon fine possiamo procedere con la configurazione di Bind</p>
+<h3 id="configurazione-di-bind">Configurazione di Bind</h3>
+<p>Per prima cosa abilitiamo le zone di Samba in Bind aggiungendo al file <em>/etc/bind/named.conf.local</em> la riga:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">include <span style="color:#e6db74">&#34;/var/lib/samba/private/named.conf&#34;</span>;
+</code></pre></td></tr></table>
+</div>
+</div><p>Poi effettuiamo le seguenti modifiche al file <em>/etc/bind/named.conf.options</em> :</p>
+<ul>
+<li>abilitiamo il forwards verso un server DNS esterno (in questo caso OpendDNS)</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">forwarders <span style="color:#f92672">{</span>
+208.67.222.222;
+208.67.220.220;
+<span style="color:#f92672">}</span>;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>abilitiamo le sottoreti che posso effettuare query al nostro server</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">allow-query <span style="color:#f92672">{</span> 127.0.0.1; 192.168.1.0/24; <span style="color:#f92672">}</span> ;
+allow-transfer <span style="color:#f92672">{</span> none; <span style="color:#f92672">}</span> ;
+notify no;
+empty-zones-enable no;
+allow-recursion <span style="color:#f92672">{</span> 127.0.0.1; 192.168.1.0/24; <span style="color:#f92672">}</span> ;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>modifichiamo la riga</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">//auth-nxdomain no;    <span style="color:#75715e"># conform to RFC1035</span>
+auth-nxdomain yes;
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>abilitiamo l&rsquo;autenticazione Samba aggiungendo la riga</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tkey-gssapi-keytab <span style="color:#e6db74">&#34;/var/lib/samba/private/dns.keytab&#34;</span>;
+</code></pre></td></tr></table>
+</div>
+</div><p>e modifichiamo i permessi della directory <em>private</em> di Samba</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># chown root:bind private</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Modifichiamo il file <em>/etc/resolv.conf</em> per aggiungere il dominio alla ricerca e facciamo puntare il server DNS sul server Bind interno</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">search test.miarete.it
+nameserver 192.168.1.80
+</code></pre></td></tr></table>
+</div>
+</div><p>Effettuiamo un <em>reboot</em> per rendere effettive tutte le modifiche e un po' di test sul server DNS</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># host -t SRV _ldap._tcp.test.miarete.it</span>
+_ldap._tcp.test.miarete.it has SRV record <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">100</span> <span style="color:#ae81ff">389</span> dominioad.test.miarete.it.
+<span style="color:#75715e"># host -t SRV _kerberos._udp.test.miarete.it</span>
+_kerberos._udp.test.miarete.it has SRV record <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">100</span> <span style="color:#ae81ff">88</span> dominioad.test.miarete.it.
+<span style="color:#75715e"># host -t A dominioad.test.miarete.it</span>
+dominioad.test.miarete.it has address 192.168.1.80
+</code></pre></td></tr></table>
+</div>
+</div><p>Se non ci sono errori il server DNS risulta ben impostato.</p>
+<h3 id="configurazione-di-kerberos">Configurazione di Kerberos</h3>
+<p>Installiamo e configuriamo Kerberos.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># apt-get install krb5-user</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Copiamo o linkiamo i file di configurazione creati da Samba</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
+</code></pre></td></tr></table>
+</div>
+</div><p>e modifichiamolo così:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>libdefaults<span style="color:#f92672">]</span>
+        default_realm <span style="color:#f92672">=</span> TEST.MIARETE.IT
+        dns_lookup_realm <span style="color:#f92672">=</span> true
+        dns_lookup_kdc <span style="color:#f92672">=</span> true
+</code></pre></td></tr></table>
+</div>
+</div><p>A questo punto un paio di test</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># kinit Administrator@TEST.MIARETE.IT</span>
+Password <span style="color:#66d9ef">for</span> Administrator@TEST.MIARETE.IT:
+Warning: Your password will expire in <span style="color:#ae81ff">41</span> days on Sun Nov <span style="color:#ae81ff">30</span> 16:02:49 <span style="color:#ae81ff">2014</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>e</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># klist</span>
+Ticket cache: FILE:/tmp/krb5cc_0
+Default principal: Administrator@TEST.MIARETE.IT
+
+Valid starting       Expires              Service principal
+19/10/2014 17:13:35  20/10/2014 03:13:35  krbtgt/TEST.MIARETE.IT@TEST.MIARETE.IT
+        renew <span style="color:#66d9ef">until</span> 20/10/2014 17:13:31
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="aggiunta-di-un-client-windows">Aggiunta di un client Windows</h3>
+<p>Ora non resta che aggiungere i client al server. Unica accortezza: ogni client Windows deve avere l&rsquo;IP del server Samba come indirizzo DNS primario.</p>
+<h3 id="amminstrazione-di-samba-con-i-tool-di-microsoft-in-ambiente-windows">Amminstrazione di Samba con i tool di Microsoft in ambiente Windows</h3>
+<p>Samba puo' essere gestito con i Remote Server Administration Tool di Microsoft in ambiente Windows.
+Tali strumenti devono essere scaricati in base al proprio sistema operativo. Questi sono i link per</p>
+<p><a href="http://www.microsoft.com/it-it/download/details.aspx?id=21090">Windows Vista</a></p>
+<p><a href="http://www.microsoft.com/it-it/download/details.aspx?id=7887">Windows 7</a></p>
+<p><a href="http://www.microsoft.com/it-it/download/details.aspx?id=28972">Windows 8</a></p>
+<p><a href="http://www.microsoft.com/it-it/download/details.aspx?id=39296">Windows 8.1</a></p>
+<p><a href="http://www.microsoft.com/en-us/download/details.aspx?id=44280">Windows 10</a></p>
+<h3 id="gestione-di-samba-da-linea-di-comando-in-ambiente-linux">Gestione di Samba da linea di comando in ambiente Linux</h3>
+<p>Il comando <em>samba-tool</em> è lo strumento in ambito Linux per la gestione di Samba. Consultare la pagina man di <a href="https://www.samba.org/samba/docs/man/manpages/samba-tool.8.html">samba-tool</a> per una descrizione dettagliata.</p>
+<h3 id="trucchetti">Trucchetti</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">- Resettare la password di Administrator
+
+<span style="color:#75715e"># smbpasswd  Administrator</span>
+New SMB password:
+Retype new SMB password:
+
+
+- Mostrare le policy della password
+
+samba-tool domain passwordsettings show
+
+
+- Togliere l<span style="color:#e6db74">&#39;expire date alla password di Samba
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"># samba-tool user setexpiry Administrator --noexpiry
+</span><span style="color:#e6db74">Expiry for user &#39;</span>Administrator<span style="color:#960050;background-color:#1e0010">&#39;</span> disabled.
+
+
+- Abilitare/disabilitare la complessità della password
+
+samba-tool domain passwordsettings set --complexity<span style="color:#f92672">=</span>on|off
+
+
+- Disabilitare la history della password
+
+samba-tool domain passwordsettings set --history-length<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+
+
+- Modificare la lunghezza minima della password
+
+samba-tool domain passwordsettings set --min-pwd-length<span style="color:#f92672">=</span>TUOVALORE
+
+
+- Modificare la durata minima/massima della passoword
+
+samba-tool domain passwordsettings set --min-pwd-age<span style="color:#f92672">=</span>TUOVALORE
+samba-tool domain passwordsettings set --max-pwd-age<span style="color:#f92672">=</span>TUOVALORE
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="riferimenti">Riferimenti</h3>
+<p>Questa guida è stata redatta anche grazie al contributo di altre guide:</p>
+<p><a href="https://wiki.samba.org/index.php/Main_Page">Samba wiki</a></p>
+<p><a href="http://guide.debianizzati.org/index.php/Samba_e_OpenLDAP:_creare_un_controller_di_dominio_Active_Directory_con_Debian_Wheezy">Samba e OpenLDAP: creare un controller di dominio Active Directory con Debian Wheezy</a></p>
+<p><a href="http://www.google.com">L' onnipresente Google</a></p>
+
+    </div>
+  </article>
+  
+  
+    <section class="mt2 mb2">
+    <div id="disqus_thread"></div>
+    <script type="text/plain" class="_iub_cs_activate" data-iub-purposes="3">
+
+    (function() {
+        // Don't ever inject Disqus on localhost--it creates unwanted
+        // discussions from 'localhost:1313' on your Disqus account...
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = '4l3cdotorg';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+  
+
+            </main><footer class="bg-near-black white-80 pv4 pv3-l ph3 ph0-l db bb border-box">
+   <div class="w-100 w-50-l center">
+      <div>
+         <a href="https://www.iubenda.com/privacy-policy/13294331" class="iubenda-white iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+         <a href="https://www.iubenda.com/privacy-policy/13294331/cookie-policy" class="iubenda-white iubenda-embed" title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+
+      </div>
+      <div class="mv1">
+         <p>4l3c a.k.a. Alessandro Bernardi - 2020</p>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Eccetto ove diversamente indicato, quest'opera è distribuita con Licenza <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" class="link dim blue">Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale</a>.</p>
+      </div>
+      <div class="mv2 pt2">
+         Powered by <a href="https://gohugo.io/" target="_blank" class="link dim blue">Hugo</a> + <a href="http://tachyons.io/" target="_blank" class="link dim blue">Tachyons</a>
+      </div>
+   </div>
+</footer>
+
+<script src="/dist/js/main.31d6cfe0d16ae931b73c.js"></script>
+
+    
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-18092151-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    </body>
+</html>

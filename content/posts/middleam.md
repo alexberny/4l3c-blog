@@ -18,7 +18,7 @@ Una volta compilato il tutto si otterranno le pagine html, i file css e javascri
 ### Passo 1: l'installazione
 Per installare Middleman basta digitare
 
-```bash
+``` bash
 $ gem install middleman
 ```
 
@@ -26,35 +26,35 @@ da linea di comando.
 
 Middleman mette a disposizione tre comandi:
 
-~~~bash
+``` bash
 middleman init
 middleman server
 middleman build
-~~~
+```
 
 Il primo inizializza un nuovo progetto, il secondo lancia il server locale per lo sviluppo del sito, il terzo genera le pagine che poi saranno caricate on-line.
 
 ### Passo 2: Creazione di un progetto
 Creaiamo un nuovo progetto con il comando
 
-~~~bash
+``` bash
 $ middleman init my_proj_name
-~~~
+```
 
 
 Di default, Middleman mette a disposizione diversi template mentre altri sono liberamente scaricabili dal sito.
 Per creare un pregetto utilizzando un template alternativo digitare il comando
 
-~~~ bash
+``` bash
 $ middleman init my_project --tempate=your_template
-~~~
+```
 
 
 ### Passo 3: La struttura del progetto
 
 All'interno del progetto troverete una struttura simile a questa:
 
-```
+``` bash
 proj
 |- config.rb
 |- Gemfile
@@ -79,9 +79,9 @@ Il resto sono i file javascript, css, il layout e un file index per l'inizio del
 Scegliete il vostro editor preferito per lo sviluppo delle varie parti del progetto.
 Lanciate il comando
 
-~~~bash
+``` bash
 $ bundle exec middleman
-~~~
+```
 
 per avviare Middleman e seguire la compilazione real-time del progetto all'url <http://localhost:4567> troverete il vostro progetto.
 Volendo si può abilitare l'estensione `Livereload` in `config.rb` durante lo sviluppo in modo tale da ricaricare in automatico le pagine ad ogni modifica, liberandovi di questo 'ingrato' compito.
@@ -92,17 +92,17 @@ Vediamo in dettaglio alcuni aspetti dello sviluppo.
 #### Scaricare i gem file necessari
 Lanciare il comando
 
-~~~bash
+``` bash
 $ bundle install
-~~~
+```
 
 che provvederà ad installare le gemme necessarie al vostro progetto.
 
 Ogni tanto è bene lanciare anche
 
-~~~bash
+``` bash
 $ bundle update
-~~~
+```
 
 per chiedere un aggiornamento di quelle già installate.
 
@@ -123,7 +123,7 @@ In questo modo non dovrete ricordarvi di scrivere e riscrivere decine di tag, ap
 
 Eccovi un esempio di pagina in *.erb*
 
-~~~erb
+``` bash
 
 ---
 title: Welcome to Middleman
@@ -135,7 +135,7 @@ title: Welcome to Middleman
     <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
   </p><!-- .doc -->
 </div><!-- .welcome -->
-~~~
+```
 
 #### Layout
 Il file `layouts/layout.erb` contiene il layout di base per tutte le pagine html che andrete a creare all'interno della directory `source`.
@@ -144,7 +144,7 @@ La potenza di Middleman permette anche di applicare ai layout il concetto di 'er
 
 Ecco un esempio di layout.erb
 
-~~~erb
+``` bash
 <!doctype html>
 <html>
   <head>
@@ -164,7 +164,7 @@ Ecco un esempio di layout.erb
     <%= yield %>
   </body>
 </html>
-~~~
+```
 
 Notate le variabili `current_page.data.title` e `yield` citati in precedenza e alle quali saranno sostituiti rispettivamente i valori di *title* del frontmater e del contenuto html che compone la pagina.
 
@@ -173,7 +173,7 @@ All'occhio balzano anche le righe `<%= stylesheet_link_tag "normalize", "all" %>
 In fase di building (sia durante lo sviluppo che in fase di deploy), Middleman crea una pagina `index.html` partendo dal `layout.html.erb` e sostituendovi i valori delle variabili e del contenuto del file `index.html.erb`.
 Il file ottenuto è
 
-~~~html
+``` html
 <!doctype html>
 <html>
   <head>
@@ -198,22 +198,22 @@ Il file ottenuto è
 </div><!-- .welcome -->
   </body>
 </html>
-~~~
+```
 
 Per non associare nessun layout ad una pagina, per esempio alla sitemap, nel file `config.rb` inserite la riga
 
 
-~~~bash
+``` bash
 page "/path/to/file.html", :layout => false
-~~~
+```
 
 oppure la riga
 
-~~~bash
+``` bash
 ...
 layout: false
 ...
-~~~
+```
 
 all'interno del frontmatter della pagina in questione.
 
@@ -224,7 +224,7 @@ La comodità dei partial sta nel semplificare il file di layout, e quindi la sua
 
 Supponendo di avere un file `_header.erb` nella cartella partials così definito:
 
-~~~erb
+``` bash
 <head>
   <meta charset="utf-8">
 
@@ -237,11 +237,11 @@ Supponendo di avere un file `_header.erb` nella cartella partials così definito
   <%= stylesheet_link_tag "normalize", "all" %>
   <%= javascript_include_tag  "all" %>
 </head>
-~~~
+```
 
 il file di layout corrispondente si presenta in questo modo
 
-~~~erb
+``` bash
 <!doctype html>
 <html>
   <%= partial "partials/header" %>
@@ -250,7 +250,7 @@ il file di layout corrispondente si presenta in questo modo
     <%= yield %>
   </body>
 </html>
-~~~
+```
 
 Notare: il nome del partial inizia con underscore _ , che non viene inserito nel nome nell'inclusione, e non ha estensione html!
 
@@ -266,22 +266,22 @@ Per associare un layout ad una pagina si può procedere in uno dei seguenti modi
 
 1. Richiamarlo nel frontmatter della pagina
 
-    ~~~bash
+    ``` bash
     ---
     title: pagina con altro layout
     layout: altLayout
     ---
 
     <div></div>
-    ~~~
+    ```
 
 2. Nel file `config.rb`
 
-    ~~~bash
+    ``` bash
     ...
     page 'nome_pagina_con_altro_layout', :layout => 'altLayout'
     ...
-    ~~~
+    ```
 
 
 
@@ -292,13 +292,13 @@ L'associazione del layout alla pagina procede allo stesso modo di quanto visto n
 
 Prendendo come esempio il file `layout.html.erb` visto in precedenza come layout base, si è creato un file `article.html.erb` per applicarlo alle sole pagine dei post.
 
-~~~erb
+``` bash
 <% wrap_layout :layout do %>
   <article>
     <%= yield %>
   </article>
 <% end %>
-~~~
+```
 
 In questo modo, Middleman sostituisce la vaiabile `yield` del layout `layout` con il contenuto del nuovo layout.
 
@@ -317,9 +317,9 @@ Per un'approfondimento si rimanda allla sezione [helpers](http://middlemanapp.co
 ### Passo 5: La compilazione
 La compilazione di un progetto si effettua con il comando:
 
-~~~bash
+``` bash
 $ bundle exec middleman build
-~~~
+```
 
 All'interno della directory `build` troverete le pagine html, i file css e javascript pronti per essere caricati sul server.
 Nella sezione `configure :build do` del `config.rb` potete modificare alcune preferenze da applicare solo in fase di compilazione.

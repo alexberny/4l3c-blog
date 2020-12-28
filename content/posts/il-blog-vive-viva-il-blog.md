@@ -1,5 +1,5 @@
 ---
-title: "Il Blog Vive Viva Il Blog"
+title: "Il Blog Vive! Viva Il Blog!"
 date: 2014-02-17T19:12:52Z
 draft: false
 description: Post di ritorno in vita del blog

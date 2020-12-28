@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Articoli on 4l3c</title>
+    <link>https://www.4l3c.org/posts/</link>
+    <description>Recent content in Articoli on 4l3c</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <lastBuildDate>Sat, 10 Oct 2020 21:58:13 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Samba AD su Debian Wheezy</title>
+      <link>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</link>
+      <pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</guid>
+      <description>Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux Enterprise.
+Con poche modifiche la guida è valida anche per altre distro Linux supportate da SerNet Samba.
+Configurazioni I parametri di configurazione di esempio seguiti in questa guida sono:</description>
+    </item>
+    
+    <item>
+      <title>Middleam</title>
+      <link>https://www.4l3c.org/2014/04/middleam/</link>
+      <pubDate>Mon, 21 Apr 2014 15:31:02 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/2014/04/middleam/</guid>
+      <description>Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&amp;rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
+Cos&amp;rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.</description>
+    </item>
+    
+    <item>
+      <title>Il Blog Vive! Viva Il Blog!</title>
+      <link>https://www.4l3c.org/2014/02/il-blog-vive-viva-il-blog/</link>
+      <pubDate>Mon, 17 Feb 2014 19:12:52 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/2014/02/il-blog-vive-viva-il-blog/</guid>
+      <description>Questo blog, seppur abbandonato al suo destino in tenera età dal quel debosciato del suo padrone (altri non è che me stesso), non è mai morto. Anzi, sono tornato a occuparmi di lui, a dargli una nuova veste grafica e nuovi contenuti.
+I dettagli in un prossimo articolo, in preparazione.
+Buona navigazione, o navigante!</description>
+    </item>
+    
+  </channel>
+</rss>
