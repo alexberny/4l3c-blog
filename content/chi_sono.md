@@ -11,7 +11,8 @@ menu:
 show_comments: false
 ---
 
-# Salve!
+## Salve'!'
+
 Mi chiamo Alessandro Bernardi e [questo](http://www.4l3c.org) è il mio blog.
 
 Appassionato di informatica fin da bambino, con un passato di consulente informatico come libero professionista, oggi lavoro nell'ufficio ICT di in un'importante azienda del credito italiana.
@@ -23,5 +24,5 @@ In consulenza ho svolto anche il ruolo di sistemista in ambito Linux e reti LAN 
 Da qualche anno mi sono accostato alla domotica, conseguendo la certificazione KNX.
 
 ## Contatti
-Mail [alexberny@yahoo.it](mailto:alexberny@yahoo.it)
 
+Mail [alexberny@yahoo.it](mailto:alexberny@yahoo.it)

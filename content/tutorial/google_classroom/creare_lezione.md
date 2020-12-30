@@ -17,7 +17,7 @@ Ecco i passi necessari per creare una lezione in Google Classroom utilizzando il
 
 2. in alto a destra, cliccare l'icona + affianco al vostro nome
 
-3.  selezionare la voce "Crea lezione"
+3. selezionare la voce "Crea lezione"
   
 4. assegnare un nome ed eventualmente una descrizione alla lezione
   
@@ -28,9 +28,9 @@ Ecco i passi necessari per creare una lezione in Google Classroom utilizzando il
 7. nella sezione "Studenti" è possibile impostare le modalità di accesso al corso da parte degli studenti:
 
     a. "Gli studenti possono aggiungere post e commenti"
-        
+
     b. "Gli studenti possono aggiungere solo commenti"
-      
+
     c. "Solo l'insegnate può aggiungere post e commenti"
 
 {{< youtube YPNKQ1TnSsU>}}

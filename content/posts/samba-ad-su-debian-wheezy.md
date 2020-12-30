@@ -13,6 +13,7 @@ Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Deb
 Con poche modifiche la guida è valida anche per altre distro Linux supportate da SerNet Samba.
 
 ### Configurazioni
+
 I parametri di configurazione di esempio seguiti in questa guida sono:
 
 - Nome del server: **dominioad**
@@ -24,6 +25,7 @@ I parametri di configurazione di esempio seguiti in questa guida sono:
 - Password dell'utente Administrator: **P4ssWord** (per ora la password deve avere almeno 7 caratteri ed essere abbastanza complessa)
 
 ### Prerequisiti
+
 I servizi di Active Directory si basano su due servizi essenziali: il DNS e la sincronizzazione oraria.
 Si consiglia pertanto di installare un servizio NTP sul server in questo modo:
 
@@ -70,6 +72,7 @@ Installiamo infine il transport-https di apt.
 ```
 
 ### Installazione di Samba
+
 Innanzitutto occorre registrarsi al sito [http://www.enterprisesamba.com](http://www.enterprisesamba.com) ed eseguire il login.
 Una volta entrati ci vengono offerte le indicazioni per effettuare l'installazione di Samba e la username e la accesskey per effettuare il download.
 
@@ -256,7 +259,7 @@ allow-recursion { 127.0.0.1; 192.168.1.0/24; } ;
 auth-nxdomain yes;
 ```
 
--  abilitiamo l'autenticazione Samba aggiungendo la riga
+- abilitiamo l'autenticazione Samba aggiungendo la riga
 
 ``` bash {linenos=table}
 tkey-gssapi-keytab "/var/lib/samba/private/dns.keytab";
@@ -288,8 +291,8 @@ dominioad.test.miarete.it has address 192.168.1.80
 
 Se non ci sono errori il server DNS risulta ben impostato.
 
-
 ### Configurazione di Kerberos
+
 Installiamo e configuriamo Kerberos.
 
 ``` bash {linenos=table}
@@ -310,6 +313,7 @@ e modifichiamolo così:
         dns_lookup_realm = true
         dns_lookup_kdc = true
 ```
+
 A questo punto un paio di test
 
 ``` bash {linenos=table}
@@ -331,9 +335,11 @@ Valid starting       Expires              Service principal
 ```
 
 ### Aggiunta di un client Windows
+
 Ora non resta che aggiungere i client al server. Unica accortezza: ogni client Windows deve avere l'IP del server Samba come indirizzo DNS primario.
 
 ### Amminstrazione di Samba con i tool di Microsoft in ambiente Windows
+
 Samba puo' essere gestito con i Remote Server Administration Tool di Microsoft in ambiente Windows.
 Tali strumenti devono essere scaricati in base al proprio sistema operativo. Questi sono i link per
 
@@ -348,9 +354,11 @@ Tali strumenti devono essere scaricati in base al proprio sistema operativo. Que
 [Windows 10](http://www.microsoft.com/en-us/download/details.aspx?id=44280)
 
 ### Gestione di Samba da linea di comando in ambiente Linux
+
 Il comando *samba-tool* è lo strumento in ambito Linux per la gestione di Samba. Consultare la pagina man di [samba-tool](https://www.samba.org/samba/docs/man/manpages/samba-tool.8.html) per una descrizione dettagliata.
 
 ### Trucchetti
+
 ``` bash {linenos=table}
 - Resettare la password di Administrator
 

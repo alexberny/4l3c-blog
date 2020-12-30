@@ -11,5 +11,4 @@ Google ha rilasciato gratuitamente per le scuole Google App for Education. Quest
 
 Ogni corso è costituito da annunci e compito che l'insegnate condivide con gli studenti che seguono il corso. Solo gli studenti che sono stati invitati o che sono in posseso del codice di classe possono partecipare alle lezioni.
 
-
 Classroom è accessibile da browser all'indirizzo [https://classroom.google.com/h](https://classroom.google.com/h) oppure su tablet e smartphone Android o iOS tramite l'app Classroom scaricabile dai rispettivi market.
