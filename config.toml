@@ -38,6 +38,8 @@ enableRobotsTXT                 = "true"
   # stackoverflow = ""
   # rss = ""
   meta_description            = "Blog personale di 4l3c a.k.a. Alessandro Bernardi"
+  ibenda_cookiePolicyId       = "13294331"
+  iubenda_siteId              = "2107002"
 
 [menu]
     [[menu.main]]
