@@ -11,7 +11,7 @@ menu:
 show_comments: false
 ---
 
-## Salve'!'
+## Salve
 
 Mi chiamo Alessandro Bernardi e [questo](http://www.4l3c.org) è il mio blog.
 
