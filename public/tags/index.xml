@@ -1,1 +1,101 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on 4l3c</title><link>https://www.4l3c.org/tags/</link><description>Recent content in Tags on 4l3c</description><generator>Hugo -- gohugo.io</generator><language>it</language><lastBuildDate>Fri, 13 Mar 2015 12:00:00 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Google Classroom</title><link>https://www.4l3c.org/tags/google-classroom/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tags/google-classroom/</guid><description/></item><item><title>Debian</title><link>https://www.4l3c.org/tags/debian/</link><pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate><guid>https://www.4l3c.org/tags/debian/</guid><description/></item><item><title>Samba</title><link>https://www.4l3c.org/tags/samba/</link><pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate><guid>https://www.4l3c.org/tags/samba/</guid><description/></item><item><title>middleman</title><link>https://www.4l3c.org/tags/middleman/</link><pubDate>Mon, 21 Apr 2014 15:31:02 +0000</pubDate><guid>https://www.4l3c.org/tags/middleman/</guid><description/></item><item><title>blog</title><link>https://www.4l3c.org/tags/blog/</link><pubDate>Mon, 17 Feb 2014 19:12:52 +0000</pubDate><guid>https://www.4l3c.org/tags/blog/</guid><description/></item><item><title>varie</title><link>https://www.4l3c.org/tags/varie/</link><pubDate>Mon, 17 Feb 2014 19:12:52 +0000</pubDate><guid>https://www.4l3c.org/tags/varie/</guid><description/></item><item><title>Chi sono</title><link>https://www.4l3c.org/tags/chi-sono/</link><pubDate>Mon, 17 Feb 2014 15:48:19 +0000</pubDate><guid>https://www.4l3c.org/tags/chi-sono/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 4l3c</title>
+    <link>https://www.4l3c.org/tags/</link>
+    <description>Recent content in Tags on 4l3c</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <lastBuildDate>Wed, 30 Dec 2020 22:32:22 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fedora</title>
+      <link>https://www.4l3c.org/tags/fedora/</link>
+      <pubDate>Wed, 30 Dec 2020 22:32:22 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/fedora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sicurezza</title>
+      <link>https://www.4l3c.org/tags/sicurezza/</link>
+      <pubDate>Wed, 30 Dec 2020 22:32:22 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/sicurezza/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>YubuKey</title>
+      <link>https://www.4l3c.org/tags/yubukey/</link>
+      <pubDate>Wed, 30 Dec 2020 22:32:22 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/yubukey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Classroom</title>
+      <link>https://www.4l3c.org/tags/google-classroom/</link>
+      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/google-classroom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debian</title>
+      <link>https://www.4l3c.org/tags/debian/</link>
+      <pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Samba</title>
+      <link>https://www.4l3c.org/tags/samba/</link>
+      <pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/samba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>middleman</title>
+      <link>https://www.4l3c.org/tags/middleman/</link>
+      <pubDate>Mon, 21 Apr 2014 15:31:02 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/middleman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://www.4l3c.org/tags/blog/</link>
+      <pubDate>Mon, 17 Feb 2014 19:12:52 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>varie</title>
+      <link>https://www.4l3c.org/tags/varie/</link>
+      <pubDate>Mon, 17 Feb 2014 19:12:52 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/varie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chi sono</title>
+      <link>https://www.4l3c.org/tags/chi-sono/</link>
+      <pubDate>Mon, 17 Feb 2014 15:48:19 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/tags/chi-sono/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,3 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Debian on 4l3c</title><link>https://www.4l3c.org/tags/debian/</link><description>Recent content in Debian on 4l3c</description><generator>Hugo -- gohugo.io</generator><language>it</language><lastBuildDate>Sun, 19 Oct 2014 12:34:00 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tags/debian/index.xml" rel="self" type="application/rss+xml"/><item><title>Samba AD su Debian Wheezy</title><link>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</link><pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate><guid>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</guid><description>Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux Enterprise.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debian on 4l3c</title>
+    <link>https://www.4l3c.org/tags/debian/</link>
+    <description>Recent content in Debian on 4l3c</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <lastBuildDate>Sun, 19 Oct 2014 12:34:00 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tags/debian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Samba AD su Debian Wheezy</title>
+      <link>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</link>
+      <pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</guid>
+      <description>Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux Enterprise.
 Con poche modifiche la guida è valida anche per altre distro Linux supportate da SerNet Samba.
-Configurazioni I parametri di configurazione di esempio seguiti in questa guida sono:</description></item></channel></rss>
+Configurazioni I parametri di configurazione di esempio seguiti in questa guida sono:</description>
+    </item>
+    
+  </channel>
+</rss>

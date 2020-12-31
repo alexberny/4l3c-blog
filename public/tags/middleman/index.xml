@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>middleman on 4l3c</title><link>https://www.4l3c.org/tags/middleman/</link><description>Recent content in middleman on 4l3c</description><generator>Hugo -- gohugo.io</generator><language>it</language><lastBuildDate>Mon, 21 Apr 2014 15:31:02 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tags/middleman/index.xml" rel="self" type="application/rss+xml"/><item><title>Middleam</title><link>https://www.4l3c.org/2014/04/middleam/</link><pubDate>Mon, 21 Apr 2014 15:31:02 +0000</pubDate><guid>https://www.4l3c.org/2014/04/middleam/</guid><description>Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&amp;rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
-Cos&amp;rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>middleman on 4l3c</title>
+    <link>https://www.4l3c.org/tags/middleman/</link>
+    <description>Recent content in middleman on 4l3c</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <lastBuildDate>Mon, 21 Apr 2014 15:31:02 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tags/middleman/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Middleam</title>
+      <link>https://www.4l3c.org/2014/04/middleam/</link>
+      <pubDate>Mon, 21 Apr 2014 15:31:02 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/2014/04/middleam/</guid>
+      <description>Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&amp;rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
+Cos&amp;rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.</description>
+    </item>
+    
+  </channel>
+</rss>
