@@ -41,7 +41,7 @@ enableGitInfo                   = "true"
   meta_description            = "Blog personale di 4l3c a.k.a. Alessandro Bernardi"
   ibenda_cookiePolicyId       = "13294331"
   iubenda_siteId              = "2107002"
-  sourcode_repo               = "https://github.com/alexberny/4l3c-blog"
+  sourcecode_repo             = "https://github.com/alexberny/4l3c-blog"
 
 [menu]
     [[menu.main]]
