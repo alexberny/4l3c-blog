@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tutorial on 4l3c</title>
-    <link>https://www.4l3c.org/tutorial/</link>
-    <description>Recent content in Tutorial on 4l3c</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>it</language>
-    <lastBuildDate>Fri, 13 Mar 2015 12:00:00 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tutorial/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on 4l3c</title><link>https://www.4l3c.org/tutorial/</link><description>Recent content in Tutorial on 4l3c</description><generator>Hugo -- gohugo.io</generator><language>it</language><lastBuildDate>Fri, 13 Mar 2015 12:00:00 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tutorial/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

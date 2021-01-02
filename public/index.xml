@@ -1,114 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>4l3c a.k.a. Alessandro Bernardi on 4l3c</title>
-    <link>https://www.4l3c.org/</link>
-    <description>Recent content in 4l3c a.k.a. Alessandro Bernardi on 4l3c</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>it</language>
-    <lastBuildDate>Wed, 30 Dec 2020 22:32:22 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Fedora e YubiKey: 2FA login</title>
-      <link>https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/</link>
-      <pubDate>Wed, 30 Dec 2020 22:32:22 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/</guid>
-      <description>In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&amp;rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC.</description>
-    </item>
-    
-    <item>
-      <title>1 - Creare una lezione</title>
-      <link>https://www.4l3c.org/tutorial/google_classroom/creare_lezione/</link>
-      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/tutorial/google_classroom/creare_lezione/</guid>
-      <description>E&#39; possibile creare una lezione sia da browser che tramite l&amp;rsquo;app.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>4l3c a.k.a. Alessandro Bernardi on 4l3c</title><link>https://www.4l3c.org/</link><description>Recent content in 4l3c a.k.a. Alessandro Bernardi on 4l3c</description><generator>Hugo -- gohugo.io</generator><language>it</language><atom:link href="https://www.4l3c.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora e YubiKey: 2FA login</title><link>https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/</link><pubDate>Wed, 30 Dec 2020 22:32:22 +0000</pubDate><guid>https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/</guid><description>In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&amp;rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC.</description></item><item><title>1 - Creare una lezione</title><link>https://www.4l3c.org/tutorial/google_classroom/creare_lezione/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tutorial/google_classroom/creare_lezione/</guid><description>E' possibile creare una lezione sia da browser che tramite l&amp;rsquo;app.
 Versione da browser Ecco i passi necessari per creare una lezione in Google Classroom utilizzando il browser:
-  accedere al sito https://classroom.google.com/h
-  in alto a destra, cliccare l&amp;rsquo;icona + affianco al vostro nome
-  selezionare la voce &amp;ldquo;Crea lezione&amp;rdquo;
-  assegnare un nome ed eventualmente una descrizione alla lezione
-  nella home page della lezione è presente il &amp;ldquo;Codice di classe&amp;rdquo; da condividere con gli studenti interessati a seguire la lezione</description>
-    </item>
-    
-    <item>
-      <title>2 - Condividere un documento</title>
-      <link>https://www.4l3c.org/tutorial/google_classroom/condividere_documento/</link>
-      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/tutorial/google_classroom/condividere_documento/</guid>
-      <description>E&#39; possibile condividere documenti, filmati, immagini con la classe. I file possono essere condivisi direttamente dal computer e saranno salvati nella vostra cartella Google Drive o da Google Drive stesso. Inoltre si possono condividere filmati da Youtube oppure URL per l&amp;rsquo;accesso a pagine internet.
+accedere al sito https://classroom.google.com/h
+in alto a destra, cliccare l&amp;rsquo;icona + affianco al vostro nome
+selezionare la voce &amp;ldquo;Crea lezione&amp;rdquo;
+assegnare un nome ed eventualmente una descrizione alla lezione
+nella home page della lezione è presente il &amp;ldquo;Codice di classe&amp;rdquo; da condividere con gli studenti interessati a seguire la lezione</description></item><item><title>2 - Condividere un documento</title><link>https://www.4l3c.org/tutorial/google_classroom/condividere_documento/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tutorial/google_classroom/condividere_documento/</guid><description>E' possibile condividere documenti, filmati, immagini con la classe. I file possono essere condivisi direttamente dal computer e saranno salvati nella vostra cartella Google Drive o da Google Drive stesso. Inoltre si possono condividere filmati da Youtube oppure URL per l&amp;rsquo;accesso a pagine internet.
 Versione da browser Ecco i passi necessari per condividere un documento in Google Classroom utilizzando il browser:
-  accedere alla pagina del corso su https://classroom.google.com/h</description>
-    </item>
-    
-    <item>
-      <title>3 - Assegnare un compito</title>
-      <link>https://www.4l3c.org/tutorial/google_classroom/assegnare_compito/</link>
-      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/tutorial/google_classroom/assegnare_compito/</guid>
-      <description>E&#39; possibile assegnare compiti alla classe da svolgere entro una data. In seguito, l&amp;rsquo;insegnante potrà correggere, valutare e riconsegnare i compiti.
+accedere alla pagina del corso su https://classroom.google.com/h</description></item><item><title>3 - Assegnare un compito</title><link>https://www.4l3c.org/tutorial/google_classroom/assegnare_compito/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tutorial/google_classroom/assegnare_compito/</guid><description>E' possibile assegnare compiti alla classe da svolgere entro una data. In seguito, l&amp;rsquo;insegnante potrà correggere, valutare e riconsegnare i compiti.
 Versione da browser Ecco i passi necessari per assegnare un compito in Google Classroom utilizzando il browser:
-  accedere alla pagina del corso su https://classroom.google.com/h
-  scegliere il corso nel quale si vuole condividere un documento
-  cliccare su &amp;ldquo;Compito&amp;rdquo;
-  assegnare un nome al compito</description>
-    </item>
-    
-    <item>
-      <title>Introduzione</title>
-      <link>https://www.4l3c.org/tutorial/google_classroom/introduzione/</link>
-      <pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/tutorial/google_classroom/introduzione/</guid>
-      <description>Google ha rilasciato gratuitamente per le scuole Google App for Education. Questa suite comprende le app tradizioni di Google: Gmail, Drive, Youtube, Docs, Fogli, Presentazioni e in più si trova inclusa Classroom, un&#39; app studiata appositamente per la didattica. Classroom è costruita sul concetto di corso: un docente tiene un insegnamento ad una o più classi.
-Ogni corso è costituito da annunci e compito che l&amp;rsquo;insegnate condivide con gli studenti che seguono il corso.</description>
-    </item>
-    
-    <item>
-      <title>Samba AD su Debian Wheezy</title>
-      <link>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</link>
-      <pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</guid>
-      <description>Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux Enterprise.
+accedere alla pagina del corso su https://classroom.google.com/h
+scegliere il corso nel quale si vuole condividere un documento
+cliccare su &amp;ldquo;Compito&amp;rdquo;
+assegnare un nome al compito</description></item><item><title>Introduzione</title><link>https://www.4l3c.org/tutorial/google_classroom/introduzione/</link><pubDate>Fri, 13 Mar 2015 12:00:00 +0000</pubDate><guid>https://www.4l3c.org/tutorial/google_classroom/introduzione/</guid><description>Google ha rilasciato gratuitamente per le scuole Google App for Education. Questa suite comprende le app tradizioni di Google: Gmail, Drive, Youtube, Docs, Fogli, Presentazioni e in più si trova inclusa Classroom, un' app studiata appositamente per la didattica. Classroom è costruita sul concetto di corso: un docente tiene un insegnamento ad una o più classi.
+Ogni corso è costituito da annunci e compito che l&amp;rsquo;insegnate condivide con gli studenti che seguono il corso.</description></item><item><title>Samba AD su Debian Wheezy</title><link>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</link><pubDate>Sun, 19 Oct 2014 12:34:00 +0000</pubDate><guid>https://www.4l3c.org/2014/10/samba-ad-su-debian-wheezy/</guid><description>Questa guida vuole aiutare ad installare Samba4 e Bind come server di DNS su Debian Wheezy. Ho scelto di utilizzare SerNet Enterprise Samba al posto dei pacchetti presenti nel repository di Debian. Per chi non la conoscesse, Enterprise Samba si occupa da anni di patchare e pacchettizzare Samba per le distro Linux Enterprise.
 Con poche modifiche la guida è valida anche per altre distro Linux supportate da SerNet Samba.
-Configurazioni I parametri di configurazione di esempio seguiti in questa guida sono:</description>
-    </item>
-    
-    <item>
-      <title>Middleam</title>
-      <link>https://www.4l3c.org/2014/04/middleam/</link>
-      <pubDate>Mon, 21 Apr 2014 15:31:02 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/2014/04/middleam/</guid>
-      <description>Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&amp;rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
-Cos&amp;rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.</description>
-    </item>
-    
-    <item>
-      <title>Il Blog Vive! Viva Il Blog!</title>
-      <link>https://www.4l3c.org/2014/02/il-blog-vive-viva-il-blog/</link>
-      <pubDate>Mon, 17 Feb 2014 19:12:52 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/2014/02/il-blog-vive-viva-il-blog/</guid>
-      <description>Questo blog, seppur abbandonato al suo destino in tenera età dal quel debosciato del suo padrone (altri non è che me stesso), non è mai morto. Anzi, sono tornato a occuparmi di lui, a dargli una nuova veste grafica e nuovi contenuti.
+Configurazioni I parametri di configurazione di esempio seguiti in questa guida sono:</description></item><item><title>Middleam</title><link>https://www.4l3c.org/2014/04/middleam/</link><pubDate>Mon, 21 Apr 2014 15:31:02 +0000</pubDate><guid>https://www.4l3c.org/2014/04/middleam/</guid><description>Voglio parlarvi di uno strumento che sto utilizzando ormai da un anno in quasi tutti i progetti di siti statici cui ho lavorato. Si tratta di Middleman, un generatore di siti statici, basato su Ruby e Sinitra. L&amp;rsquo;utilità di Middleman non riguarda solo la generazione di siti statici, ma anche di blog (vedi questo), o la prototipizzazione di progetti che poi saranno implementati in altri modi.
+Cos&amp;rsquo;è un generatore di siti statici Un generatore di siti statici è uno strumento che facilita la creazione di siti a partire da basi che sono proprie dei CMS o altri tool di sviluppo: separare i contenuti dal layout grafico, applicare vari temi a seconda del contenuto o incorporare risorse solo nelle pagine che ne hanno bisogno.</description></item><item><title>Il Blog Vive! Viva Il Blog!</title><link>https://www.4l3c.org/2014/02/il-blog-vive-viva-il-blog/</link><pubDate>Mon, 17 Feb 2014 19:12:52 +0000</pubDate><guid>https://www.4l3c.org/2014/02/il-blog-vive-viva-il-blog/</guid><description>Questo blog, seppur abbandonato al suo destino in tenera età dal quel debosciato del suo padrone (altri non è che me stesso), non è mai morto. Anzi, sono tornato a occuparmi di lui, a dargli una nuova veste grafica e nuovi contenuti.
 I dettagli in un prossimo articolo, in preparazione.
-Buona navigazione, o navigante!</description>
-    </item>
-    
-    <item>
-      <title>Chi sono</title>
-      <link>https://www.4l3c.org/chi_sono/</link>
-      <pubDate>Mon, 17 Feb 2014 15:48:19 +0000</pubDate>
-      
-      <guid>https://www.4l3c.org/chi_sono/</guid>
-      <description>Salve Mi chiamo Alessandro Bernardi e questo è il mio blog.
+Buona navigazione, o navigante!</description></item><item><title>Chi sono</title><link>https://www.4l3c.org/chi_sono/</link><pubDate>Mon, 17 Feb 2014 15:48:19 +0000</pubDate><guid>https://www.4l3c.org/chi_sono/</guid><description>Salve Mi chiamo Alessandro Bernardi e questo è il mio blog.
 Appassionato di informatica fin da bambino, con un passato di consulente informatico come libero professionista, oggi lavoro nell&amp;rsquo;ufficio ICT di in un&amp;rsquo;importante azienda del credito italiana.
 In particolare ho conoscenza di SQL, C#, .Net Core, Angular, HTML5, CSS, Drupal, C/C++, java, ruby e php.
-In consulenza ho svolto anche il ruolo di sistemista in ambito Linux e reti LAN e WiFi.</description>
-    </item>
-    
-  </channel>
-</rss>
+In consulenza ho svolto anche il ruolo di sistemista in ambito Linux e reti LAN e WiFi.</description></item></channel></rss>
