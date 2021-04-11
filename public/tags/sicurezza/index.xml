@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sicurezza on 4l3c</title><link>https://www.4l3c.org/tags/sicurezza/</link><description>Recent content in sicurezza on 4l3c</description><generator>Hugo -- gohugo.io</generator><language>it</language><lastBuildDate>Wed, 30 Dec 2020 22:32:22 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tags/sicurezza/index.xml" rel="self" type="application/rss+xml"/><item><title>Fedora e YubiKey: 2FA login</title><link>https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/</link><pubDate>Wed, 30 Dec 2020 22:32:22 +0000</pubDate><guid>https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/</guid><description>In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&amp;rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sicurezza on 4l3c</title>
+    <link>https://www.4l3c.org/tags/sicurezza/</link>
+    <description>Recent content in sicurezza on 4l3c</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>it</language>
+    <lastBuildDate>Wed, 30 Dec 2020 22:32:22 +0000</lastBuildDate><atom:link href="https://www.4l3c.org/tags/sicurezza/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fedora e YubiKey: 2FA login</title>
+      <link>https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/</link>
+      <pubDate>Wed, 30 Dec 2020 22:32:22 +0000</pubDate>
+      
+      <guid>https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/</guid>
+      <description>In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&amp;rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC.</description>
+    </item>
+    
+  </channel>
+</rss>

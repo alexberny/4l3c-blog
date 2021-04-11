@@ -1,23 +1,207 @@
-<!doctype html><html lang=it><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><base href=https://www.4l3c.org/><meta name=Description content="Blog personale di 4l3c a.k.a. Alessandro Bernardi"><title>Fedora e YubiKey: 2FA login | 4l3c</title><link rel=preconnect href=https://kit.fontawesome.com><link rel=dns-prefetch href=https://kit.fontawesome.com><link rel=preconnect href=https://fonts.googleapis.com><link rel=dns-prefetch href=https://fonts.googleapis.com><link rel=preconnect href=https://cdn.iubenda.com><link rel=dns-prefetch href=https://cdn.iubenda.com><link rel=preconnect href=https://www.google-analytics.com><link rel=dns-prefetch href=https://www.google-analytics.com><link rel=preconnect href=https://licensebuttons.net><link rel=dns-prefetch href=https://licensebuttons.net><link rel=preconnect href=https://ka-f.fontawesome.com><link rel=dns-prefetch href=https://ka-f.fontawesome.com><link rel=preconnect href=https://www.iubenda.com><link rel=dns-prefetch href=https://www.iubenda.com><link rel=preconnect href=https://hits-i.iubenda.com/><link rel=dns-prefetch href=https://hits-i.iubenda.com/><script defer src=https://kit.fontawesome.com/fde4160ead.js crossorigin=anonymous></script><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel=stylesheet><script type=text/javascript>var _iub=_iub||[];_iub.csConfiguration={"ccpaAcknowledgeOnDisplay":true,"whitelabel":false,"lang":"it","siteId":"2107002","enableCcpa":true,"countryDetection":true,"perPurposeConsent":true,"cookiePolicyId":"13294331","banner":{"acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-top-center","rejectButtonDisplay":true}};</script><script type=text/javascript src=//cdn.iubenda.com/cs/ccpa/stub.js></script><script type=text/javascript src=//cdn.iubenda.com/cs/iubenda_cs.js async></script><meta property="og:title" content="Fedora e YubiKey: 2FA login"><meta property="og:description" content="In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC."><meta property="og:type" content="article"><meta property="og:url" content="https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/"><meta property="article:published_time" content="2020-12-30T22:32:22+00:00"><meta property="article:modified_time" content="2020-12-31T23:22:36+01:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Fedora e YubiKey: 2FA login"><meta name=twitter:description content="In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fedora e YubiKey: 2FA login","image":"https://www.4l3c.org/","datePublished":"2020-12-30T22:32:22Z","dateModified":"2020-12-31T23:22:36+01:00","author":{"@type":"Person","name":"Alessandro Bernardi"},"mainEntityOfPage":{"@type":"WebPage"},"publisher":{"@type":"Organization","name":null,"logo":{"@type":"ImageObject","url":null}},"description":"In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all\u0026rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC.","keywords":["Fedora","YubuKey","sicurezza"]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Blog","name":"4l3c","url":"https://www.4l3c.org/","sameAs":["https://www.facebook.com/https:\/\/www.facebook.com\/alessandro.bernardi","https://www.instagram.com/","https://twitter.com/https:\/\/twitter.com\/alexberny","https://github.com/https:\/\/github.com\/alexberny"]}</script></head><body class="w-100 debug-grid"><header class="w-100 w-50-ns tc pv3 center"><h1 class="dib site-name pa2">4l3c</h1><span>a.k.a. Alessandro Bernardi</span></header><nav id=mainMenu class="w-100 w-50-l center dt pv4 pv3-l ph3 ph0-l db bb border-box" role=navigation><div class="w-100 w-70-l db dtc-l"><a class="sidebar-nav-item ph2 link dark-gray hover-blue" href=/>Home</a>
-<a class="sidebar-nav-item ph2 link dark-gray hover-blue" href=/chi_sono/ title="Chi sono">Chi sono</a>
-<a class="sidebar-nav-item active ph2 link dark-gray hover-blue" href=/posts/ title=Articoli>Articoli</a>
-<a class="sidebar-nav-item ph2 link dark-gray hover-blue" href=/tutorial/ title=Tutorial>Tutorial</a></div><div class="w-100 w-30-l db dtc-l tr-l mt3 mv0-l"><a class="link ph2 dark-gray hover-blue" href=https://www.facebook.com/alessandro.bernardi target=_blank rel="nofollow, noreferrer" aria-label=facebook><i class="fab fa-facebook-f"></i></a><a class="link ph2 dark-gray hover-blue" href=https://twitter.com/alexberny target=_blank rel="nofollow, noreferrer" aria-label=twitter><i class="fab fa-twitter"></i></a><a class="link ph2 dark-gray hover-blue" href=https://www.linkedin.com/in/alessandro-bernardi-17021979 target=_blank rel="nofollow, noreferrer" aria-label=linkedin><i class="fab fa-linkedin-in"></i></a><a class="link ph2 dark-gray hover-blue" href=https://www.youtube.com/c/AlessandroBernardi-4l3c target=_blank rel="nofollow, noreferrer" aria-label=youtube><i class="fab fa-youtube"></i></a></div></nav><main class="w-100 w-50-l center ph3 ph0-l"><article><header><h1>Fedora e YubiKey: 2FA login</h1><span class="db dib-l mt2 w-50-l"><i class="far fa-calendar-alt"></i><time datetime=2020-12-30T22:32:22-08:00>30 Dicembre 2020</time></span>
-<span class="db dib-l mt2 tr-l"><i class="fas fa-tags"></i><a href=tags/fedora class="link dim blue">Fedora</a>
-\ <a href=tags/yubukey class="link dim blue">YubuKey</a>
-\ <a href=tags/sicurezza class="link dim blue">sicurezza</a></span></header><div class="mv5 lh-copy post-content"><p>In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard <em>FIDO2</em> e <em>WebAuthn</em>. La scelta è caduta su una (anzi due per ragioni di sicurezza) <a href=https://www.yubico.com/products/yubikey-5-overview/ title="YubiKey 5 NFC" target=_blank rel="noopener noreferrer">YubiKey 5 NFC</a>. La motivazione che mi ha portato a questo token esula dall&rsquo;intento di questa guida ma in rete si trovano molte pagine di paragone con altri prodotti simili.</p><p>All&rsquo;inizio ho utilizzato la chiave solo per l&rsquo;accesso ai siti compatibili con gli standard FIDO2 e WebAuthn, approfondendo però le potenzialità del prodotto, ho scoperto che è utilizzabile anche come U2F (Universal 2nd Factor) per il login su Linux. Ho deciso quindi di attivarlo subito sulla Fedora del mio notebook. Dopo oltre un anno di utilizzo, complice il passaggio alla Fedora 33, ho voluto scrivere questa guida per aiutare quanti volessero, anche solo per curiosità, provare ad aggiungere un fattore di sicurezza al proprio pc. Con pochi adattamenti è possibile eseguire l&rsquo;installazione anche sulle altre distro RH derivate e con qualche sforzo in più anche su quelle Debian-based.</p><p>Per chi avesse una versione diversa della YubiKey, consiglio di verificare sul sito del produttore la compatibilità con lo standard U2F.</p><h2 id=installazione-del-software-necessario>Installazione del software necessario</h2><p>Lanciare il seguente comando per installare i pacchetti necessari.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>dnf install pam-u2f pamu2fcfg yubikey-manager
-</code></pre></div><h2 id=configurazione>Configurazione</h2><p>Fedora, utilizza <em>authselect</em> per configurare i metodi di accesso al sitema. In questo modo non è necessario modificare a mano i vari file <em>pam.d/*</em> o <em>nsswitch</em>. Per abilitare il modulo per <em>u2f</em> lanciare il seguente comando:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>authselect <span style=color:#66d9ef>select</span> sssd with-pam-u2f-2fa without-nullok
-</code></pre></div><p>Per ogni utente bisogna creare il file che conterrà le chiavi associate. Per una configurazione globale è possibile creare il file in <em>/etc</em>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>mkdir ~/.config/Yubico
+<!DOCTYPE html>
+<html lang="it"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="https://www.4l3c.org/">
+    <meta name="Description" content="Blog personale di 4l3c a.k.a. Alessandro Bernardi">
+    <title>Fedora e YubiKey: 2FA login | 4l3c</title>
+
+    <link rel="preconnect" href="https://kit.fontawesome.com">
+    <link rel="dns-prefetch" href="https://kit.fontawesome.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdn.iubenda.com">
+    <link rel="dns-prefetch" href="https://cdn.iubenda.com">
+    <link rel="preconnect" href="https://www.google-analytics.com ">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com ">
+    <link rel="preconnect" href="https://licensebuttons.net">
+    <link rel="dns-prefetch" href="https://licensebuttons.net">
+    <link rel="preconnect" href="https://ka-f.fontawesome.com">
+    <link rel="dns-prefetch" href="https://ka-f.fontawesome.com">
+    <link rel="preconnect" href="https://www.iubenda.com">
+    <link rel="dns-prefetch" href="https://www.iubenda.com">
+    <link rel="preconnect" href="https://hits-i.iubenda.com/">
+    <link rel="dns-prefetch" href="https://hits-i.iubenda.com/">
+   
+    
+    
+
+    
+    <script defer src="https://kit.fontawesome.com/fde4160ead.js" crossorigin="anonymous"></script>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
+    
+    <script type="text/javascript">
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"ccpaAcknowledgeOnDisplay":true,"whitelabel":false,"lang":"it","siteId":"2107002","enableCcpa":true,"countryDetection":true,"perPurposeConsent":true,"cookiePolicyId":"13294331", "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-top-center","rejectButtonDisplay":true }};
+</script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/ccpa/stub.js"></script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+    <meta property="og:title" content="Fedora e YubiKey: 2FA login" />
+<meta property="og:description" content="In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.4l3c.org/2020/12/fedora-e-yubikey-2fa-login/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-12-30T22:32:22&#43;00:00" />
+<meta property="article:modified_time" content="2020-12-31T23:22:36&#43;01:00" />
+
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Fedora e YubiKey: 2FA login"/>
+<meta name="twitter:description" content="In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC."/>
+
+    <script type="application/ld+json">
+    
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Fedora e YubiKey: 2FA login",
+      "image": "https://www.4l3c.org/",
+      "datePublished": "2020-12-30T22:32:22Z",
+      "dateModified": "2020-12-31T23:22:36+01:00",
+      "author": {
+        "@type": "Person",
+        "name": "Alessandro Bernardi"
+      },
+      "mainEntityOfPage": { "@type": "WebPage" },
+       "publisher": {
+        "@type": "Organization",
+        "name":  null ,
+        "logo": {
+          "@type": "ImageObject",
+          "url":  null 
+        }
+      },
+      "description": "In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all\u0026rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard FIDO2 e WebAuthn. La scelta è caduta su una (anzi due per ragioni di sicurezza) YubiKey 5 NFC.",
+      "keywords": ["Fedora", "YubuKey", "sicurezza"]
+    }
+    
+  </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "4l3c",
+      "url": "https://www.4l3c.org/",
+      "sameAs": [
+        "https://www.facebook.com/https:\/\/www.facebook.com\/alessandro.bernardi",
+        "https://www.instagram.com/",
+        "https://twitter.com/https:\/\/twitter.com\/alexberny",
+        "https://github.com/https:\/\/github.com\/alexberny"
+      ]
+    }
+    </script>
+</head><body class="w-100 debug-grid">
+        <header class="w-100 w-50-ns tc pv3 center">
+    <h1 class="dib site-name pa2">
+        4l3c
+    </h1>
+    <span>a.k.a. Alessandro Bernardi</span>
+</header><nav id="mainMenu" class="w-100 w-50-l center dt pv4 pv3-l ph3 ph0-l db bb border-box" role="navigation">
+    <div class="w-100 w-70-l db dtc-l">
+        
+        
+        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/" title="">Home</a>
+        
+        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/chi_sono/" title="Chi sono">Chi sono</a>
+        
+        <a class="sidebar-nav-item  active ph2 link dark-gray hover-blue" href="/posts/" title="Articoli">Articoli</a>
+        
+        <a class="sidebar-nav-item  ph2 link dark-gray hover-blue" href="/tutorial/" title="Tutorial">Tutorial</a>
+        
+    </div>
+    <div class="w-100 w-30-l db dtc-l tr-l mt3 mv0-l">
+        
+        <a class="link ph2 dark-gray hover-blue" href="https://www.facebook.com/alessandro.bernardi" target="_blank" rel="nofollow, noreferrer" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
+        
+        
+        <a class="link ph2 dark-gray hover-blue" href="https://twitter.com/alexberny" target="_blank" rel="nofollow, noreferrer" aria-label="twitter"><i class="fab fa-twitter"></i></a>
+        
+        
+        <a class="link ph2 dark-gray hover-blue" href="https://www.linkedin.com/in/alessandro-bernardi-103bc1b" target="_blank" rel="nofollow, noreferrer" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
+        
+        
+        <a class="link ph2 dark-gray hover-blue" href="https://mastodon.uno/@4l3c" target="_blank" rel="nofollow, noreferrer" aria-label="mastodon"><i class="fab fa-mastodon"></i></a>
+        
+        
+        <a class="link ph2 dark-gray hover-blue" href="https://www.youtube.com/c/AlessandroBernardi-4l3c" target="_blank" rel="nofollow, noreferrer" aria-label="youtube"><i class="fab fa-youtube"></i></a>
+        
+    </div>
+</nav><main class="w-100 w-50-l center ph3 ph0-l">
+                
+  <article>
+    <header>
+      <h1>Fedora e YubiKey: 2FA login</h1>
+      <span class="db dib-l mt2 w-50-l">                        
+        <i class="far fa-calendar-alt"></i> <time datetime="2020-12-30T22:32:22-08:00">30 Dicembre 2020</time>
+      </span>
+      <span class="db dib-l mt2 tr-l">
+          <i class="fas fa-tags"></i> 
+          
+          <a href="tags/fedora" class="link dim blue">Fedora</a>
+          
+           \ <a href="tags/yubukey" class="link dim blue">YubuKey</a>
+          
+           \ <a href="tags/sicurezza" class="link dim blue">sicurezza</a>
+          
+      </span>
+    </header> 
+    <div class="mv5 lh-copy post-content">
+      <p>In termini di sicurezza, si sa, la prudenza non è mai troppa. Così da qualche anno ho iniziato ad utilizzare il 2FA (secondo fattore di autenticazione) su tutti i siti e app che lo permettono. Oltre all&rsquo;ormai desueto sms e alla più moderna app authenticator per la generazione di OTP, ho deciso di provare anche un token fisico compatibile con gli standard <em>FIDO2</em> e <em>WebAuthn</em>. La scelta è caduta su una (anzi due per ragioni di sicurezza) <a href="https://www.yubico.com/products/yubikey-5-overview/" title="YubiKey 5 NFC"
+ 
+target="_blank" rel="noopener noreferrer">
+YubiKey 5 NFC</a>. La motivazione che mi ha portato a questo token esula dall&rsquo;intento di questa guida ma in rete si trovano molte pagine di paragone con altri prodotti simili.</p>
+<p>All&rsquo;inizio ho utilizzato la chiave solo per l&rsquo;accesso ai siti compatibili con gli standard FIDO2 e WebAuthn, approfondendo però le potenzialità del prodotto, ho scoperto che è utilizzabile anche come U2F (Universal 2nd Factor) per il login su Linux. Ho deciso quindi di attivarlo subito sulla Fedora del mio notebook. Dopo oltre un anno di utilizzo, complice il passaggio alla Fedora 33, ho voluto scrivere questa guida per aiutare quanti volessero, anche solo per curiosità, provare ad aggiungere un fattore di sicurezza al proprio pc. Con pochi adattamenti è possibile eseguire l&rsquo;installazione anche sulle altre distro RH derivate e con qualche sforzo in più anche su quelle Debian-based.</p>
+<p>Per chi avesse una versione diversa della YubiKey, consiglio di verificare sul sito del produttore la compatibilità con lo standard U2F.</p>
+<h2 id="installazione-del-software-necessario">Installazione del software necessario</h2>
+<p>Lanciare il seguente comando per installare i pacchetti necessari.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dnf install pam-u2f pamu2fcfg yubikey-manager
+</code></pre></div><h2 id="configurazione">Configurazione</h2>
+<p>Fedora, utilizza <em>authselect</em> per configurare i metodi di accesso al sitema. In questo modo non è necessario modificare a mano i vari file <em>pam.d/*</em> o <em>nsswitch</em>. Per abilitare il modulo per <em>u2f</em> lanciare il seguente comando:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">authselect <span style="color:#66d9ef">select</span> sssd with-pam-u2f-2fa without-nullok
+</code></pre></div><p>Per ogni utente bisogna creare il file che conterrà le chiavi associate. Per una configurazione globale è possibile creare il file in <em>/etc</em>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ~/.config/Yubico
 </code></pre></div><p>L&rsquo;ultimo passaggio consiste nell&rsquo;abilitare le singole chiavi.
-Per la prima si usa:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pamu2fcfg &gt; ~/.config/Yubico/u2f_keys
-</code></pre></div><p>toccare il pulsante a sfioramento quando lampeggia.</p><p>Configurare le ulteriori chiavi lanciando, per ognuna, il seguente comando:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pamu2fcfg -n &gt;&gt; ~/.config/Yubico/u2f_keys
-</code></pre></div><p><strong>Importante !!!</strong> Prima di riavviare il sistema, testare tutte le chiavi digitando in un terminale</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo echo test
-</code></pre></div><p>Si deve ottenere</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo echo test
+Per la prima si usa:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pamu2fcfg &gt; ~/.config/Yubico/u2f_keys
+</code></pre></div><p>toccare il pulsante a sfioramento quando lampeggia.</p>
+<p>Configurare le ulteriori chiavi lanciando, per ognuna, il seguente comando:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pamu2fcfg -n &gt;&gt; ~/.config/Yubico/u2f_keys
+</code></pre></div><p><strong>Importante !!!</strong> Prima di riavviare il sistema, testare tutte le chiavi digitando in un terminale</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo echo test
+</code></pre></div><p>Si deve ottenere</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo echo test
 Please touch the device.
-</code></pre></div><p>a questo punto il token inizierà a lampeggiare e basterà sfiorarlo ed il sistema chiederà la password.</p><p>Il risultato finale è:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo echo test
+</code></pre></div><p>a questo punto il token inizierà a lampeggiare e basterà sfiorarlo ed il sistema chiederà la password.</p>
+<p>Il risultato finale è:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo echo test
 Please touch the device.
-<span style=color:#f92672>[</span>sudo<span style=color:#f92672>]</span> password di user:
+<span style="color:#f92672">[</span>sudo<span style="color:#f92672">]</span> password di user:
 test
-</code></pre></div><p><strong>E' importante ripete il test con tutte le chiavi prima di effettuare il riavvio.</strong></p><p>In rete si trovano anche guide per l&rsquo;utilizzo della chiave crittografica contenuta nel token al posto dell' u2f, ma ho deciso di non applicarla in quanto il pc deve essere connesso ad Internet per la verifica della stessa e questo non sempre è possibile: quante volte in treno si ha una ricezione scarsa o nulla!</p><p>Link utili:</p><ul><li><p>Pagina ufficiale Yubico del modulo pam-u2f: <a href=https://developers.yubico.com/pam-u2f/>https://developers.yubico.com/pam-u2f/</a></p></li><li><p>Pagina ufficiale di authselect: <a href=https://github.com/authselect/authselect>https://github.com/authselect/authselect</a></p></li><li><p>Una guida sul post-installazione di Fedora: <a href=https://mutschler.eu/linux/install-guides/fedora-post-install/#get-thunderbolt-dock-to-work-and-adjust-monitors>https://mutschler.eu/linux/install-guides/fedora-post-install/#get-thunderbolt-dock-to-work-and-adjust-monitors</a></p></li></ul></div></article><section class="mt2 mb2"><div id=disqus_thread></div><script type=text/plain class=_iub_cs_activate data-iub-purposes=3>
+</code></pre></div><p><strong>E' importante ripete il test con tutte le chiavi prima di effettuare il riavvio.</strong></p>
+<p>In rete si trovano anche guide per l&rsquo;utilizzo della chiave crittografica contenuta nel token al posto dell' u2f, ma ho deciso di non applicarla in quanto il pc deve essere connesso ad Internet per la verifica della stessa e questo non sempre è possibile: quante volte in treno si ha una ricezione scarsa o nulla!</p>
+<p>Link utili:</p>
+<ul>
+<li>
+<p>Pagina ufficiale Yubico del modulo pam-u2f: <a href="https://developers.yubico.com/pam-u2f/">https://developers.yubico.com/pam-u2f/</a></p>
+</li>
+<li>
+<p>Pagina ufficiale di authselect: <a href="https://github.com/authselect/authselect">https://github.com/authselect/authselect</a></p>
+</li>
+<li>
+<p>Una guida sul post-installazione di Fedora: <a href="https://mutschler.eu/linux/install-guides/fedora-post-install/#get-thunderbolt-dock-to-work-and-adjust-monitors">https://mutschler.eu/linux/install-guides/fedora-post-install/#get-thunderbolt-dock-to-work-and-adjust-monitors</a></p>
+</li>
+</ul>
+
+    </div>
+  </article>
+  
+  
+    <section class="mt2 mb2">
+    <div id="disqus_thread"></div>
+    <script type="text/plain" class="_iub_cs_activate" data-iub-purposes="3">
 
     (function() {
         // Don't ever inject Disqus on localhost--it creates unwanted
@@ -30,7 +214,68 @@ test
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
-    </script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></section><div class="source bt mv1 pv2 f6"><p>Pagina: Fedora e YubiKey: 2FA login - Lastmod: 2020-12-31 23:22:36</p><p>File: <a href=https://github.com/alexberny/4l3c-blog/blob/main/content/posts/Fedora_e_Yubikey_2FA.md target=_blank class="link dim blue" rel="nofollow, noreferrer">posts/Fedora_e_Yubikey_2FA.md</a> - md5 checksum 4dc81e1ef55c93493d75f5f3b2d684e4</p></div></main><footer class="bg-near-black white-80 pv4 pv4-l ph3 ph0-l db bb border-box"><div class="w-100 w-50-l center f6"><div class="tc f3 pv2"><a class="link ph2 white hover-blue" href=https://www.facebook.com/alessandro.bernardi target=_blank rel="nofollow, noreferrer" aria-label=facebook><i class="fab fa-facebook-f"></i></a><a class="link ph2 white hover-blue" href=https://twitter.com/alexberny target=_blank rel="nofollow, noreferrer" aria-label=twitter><i class="fab fa-twitter"></i></a><a class="link ph2 white hover-blue" href=https://www.linkedin.com/in/alessandro-bernardi-17021979 target=_blank rel="nofollow, noreferrer" aria-label=linkedin><i class="fab fa-linkedin-in"></i></a><a class="link ph2 white hover-blue" href=https://www.youtube.com/c/AlessandroBernardi-4l3c target=_blank rel="nofollow, noreferrer" aria-label=youtube><i class="fab fa-youtube"></i></a><a class="link ph2 white hover-blue" href=https://github.com/alexberny target=_blank rel="nofollow, noreferrer" aria-label=github><i class="fab fa-github"></i></a><a class="link ph2 white hover-blue" href=https://mastodon.uno/@4l3c target=_blank rel="nofollow, noreferrer" aria-label=mastodon><i class="fab fa-mastodon"></i></a></div><div class=pv2><a href=https://www.iubenda.com/privacy-policy/13294331 class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type=text/javascript>(function(w,d){var loader=function(){var s=d.createElement("script"),tag=d.getElementsByTagName("script")[0];s.src="https://cdn.iubenda.com/iubenda.js";tag.parentNode.insertBefore(s,tag);};if(w.addEventListener){w.addEventListener("load",loader,false);}else if(w.attachEvent){w.attachEvent("onload",loader);}else{w.onload=loader;}})(window,document);</script>
-<a href=https://www.iubenda.com/privacy-policy/13294331/cookie-policy class="iubenda-white iubenda-embed" title="Cookie Policy">Cookie Policy</a><script type=text/javascript>(function(w,d){var loader=function(){var s=d.createElement("script"),tag=d.getElementsByTagName("script")[0];s.src="https://cdn.iubenda.com/iubenda.js";tag.parentNode.insertBefore(s,tag);};if(w.addEventListener){w.addEventListener("load",loader,false);}else if(w.attachEvent){w.attachEvent("onload",loader);}else{w.onload=loader;}})(window,document);</script></div><div class=pv2><p>Copyright &copy; 4l3c a.k.a. Alessandro Bernardi - 2021
-<a rel=license href=http://creativecommons.org/licenses/by-sa/4.0/><img alt="Licenza Creative Commons" style=border-width:0 src=https://i.creativecommons.org/l/by-sa/4.0/88x31.png></a><br>Eccetto ove diversamente indicato, quest'opera è distribuita con Licenza <a rel=license href=http://creativecommons.org/licenses/by-sa/4.0/ class="link dim white underline">Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale</a>.</p></div><div class=pv2><span class="w100 w-50-ns ph1">Powered by <a href=https://gohugo.io/ target=_blank class="link dim white underline" rel="nofollow, noreferrer">Hugo</a> + <a href=http://tachyons.io/ target=_blank class="link dim white underline" rel="nofollow, noreferrer">Tachyons</a></span>
-<span class="w100 w-50-ns bl ph1"><a href=https://github.com/alexberny/4l3c-blog target=_blank class="link dim white underline" rel="nofollow, noreferrer">Site source code</a> - <a href=https://github.com/alexberny/4l3c-hugo-theme target=_blank class="link dim white underline" rel="nofollow, noreferrer">4l3c Hugo Theme source code</a></span></div></div></footer><script src=/dist/js/main.js></script><script type=application/javascript>var dnt=(navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack);var doNotTrack=(dnt=="1"||dnt=="yes");if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-18092151-1','auto');ga('set','anonymizeIp',true);ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></body></html>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+  <div class="source bt mv1 pv2 f6">
+    <p>Pagina: Fedora e YubiKey: 2FA login - Lastmod: 2020-12-31 23:22:36</p>
+    <p>File: <a href="https://github.com/alexberny/4l3c-blog/blob/main/content/posts/Fedora_e_Yubikey_2FA.md" target="_blank" class="link dim blue" rel="nofollow, noreferrer">posts/Fedora_e_Yubikey_2FA.md</a> - md5 checksum 4dc81e1ef55c93493d75f5f3b2d684e4 </p>
+</div>
+
+            </main><footer class="bg-near-black white-80 pv4 pv4-l ph3 ph0-l db bb border-box">
+   <div class="w-100 w-50-l center f6">
+      <div class="tc f3 pv2">
+         
+         <a class=" link ph2 white hover-blue" href="https://www.facebook.com/alessandro.bernardi" target="_blank" rel="nofollow, noreferrer" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
+         
+         
+         <a class="link ph2 white hover-blue" href="https://twitter.com/alexberny" target="_blank" rel="nofollow, noreferrer" aria-label="twitter"><i class="fab fa-twitter"></i></a>
+         
+         
+         <a class="link ph2 white hover-blue" href="https://www.linkedin.com/in/alessandro-bernardi-103bc1b" target="_blank" rel="nofollow, noreferrer" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
+         
+         
+         <a class="link ph2 white hover-blue" href="https://www.youtube.com/c/AlessandroBernardi-4l3c" target="_blank" rel="nofollow, noreferrer" aria-label="youtube"><i class="fab fa-youtube"></i></a>
+         
+         
+         <a class="link ph2 white hover-blue" href="https://github.com/alexberny" target="_blank" rel="nofollow, noreferrer" aria-label="github"><i class="fab fa-github"></i></a>
+         
+         
+         <a class="link ph2 white hover-blue" href="https://mastodon.uno/@4l3c" target="_blank" rel="nofollow, noreferrer" aria-label="mastodon"><i class="fab fa-mastodon"></i></a>
+         
+      </div>
+      <div class="pv2">
+         <a href="https://www.iubenda.com/privacy-policy/13294331" class="iubenda-white iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+         <a href="https://www.iubenda.com/privacy-policy/13294331/cookie-policy" class="iubenda-white iubenda-embed" title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+      </div>
+      <div class="pv2">
+         <p>Copyright &copy; 4l3c  a.k.a. Alessandro Bernardi - 2021 
+         <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Eccetto ove diversamente indicato, quest'opera è distribuita con Licenza <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" class="link dim white underline">Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale</a>.</p>
+      </div>
+      <div class="pv2">
+         <span class="w100 w-50-ns ph1">Powered by <a href="https://gohugo.io/" target="_blank" class="link dim white underline" rel="nofollow, noreferrer">Hugo</a> + <a href="http://tachyons.io/" target="_blank" class="link dim white underline" rel="nofollow, noreferrer">Tachyons</a></span>
+         <span class="w100 w-50-ns bl ph1"><a href="https://github.com/alexberny/4l3c-blog" target="_blank" class="link dim white underline" rel="nofollow, noreferrer">Site source code</a> -  <a href="https://github.com/alexberny/4l3c-hugo-theme" target="_blank" class="link dim white underline" rel="nofollow, noreferrer">4l3c Hugo Theme source code</a></span>
+      </div>
+   </div>
+</footer>
+
+<script src="/dist/js/main.js"></script>
+
+    
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-18092151-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    </body>
+</html>
