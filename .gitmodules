@@ -1,0 +1,3 @@
+[submodule "themes/4l3c-hugo-theme"]
+	path = themes/4l3c-hugo-theme
+	url = git@github.com:alexberny/4l3c-hugo-theme.git
